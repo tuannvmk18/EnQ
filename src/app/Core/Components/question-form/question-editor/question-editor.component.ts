@@ -29,15 +29,15 @@ export class QuestionEditorComponent implements OnInit {
   onSubmit(): void {
     this.cloud.postQuestion({
       title: this.questionForm.value.question,
-      type: Number(this.questionForm.value.type),
-      rank: Number(this.questionForm.value.rank),
-      answers: {
+      type: this.questionForm.value.type,
+      rank: this.questionForm.value.rank,
+      answers: [{
         A: this.questionForm.value.A,
         B: this.questionForm.value.B,
         C: this.questionForm.value.C,
         D: this.questionForm.value.D,
         correctAnswer: Number(this.questionForm.value.correctAnswer)
-      }
+      }]
     }).subscribe({
       next: val => this.handleSuccess(val),
       error: err => this.handleError(err),

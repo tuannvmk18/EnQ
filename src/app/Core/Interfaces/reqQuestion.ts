@@ -13,5 +13,5 @@ export interface reqQuestion{
   title: string;
   type: QuestionType;
   rank: Rank;
-  answers: Answer;
+  answers: Array<Answer>;
 }
