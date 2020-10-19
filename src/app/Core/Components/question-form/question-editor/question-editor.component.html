@@ -1,0 +1,79 @@
+<form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+  <div>
+    Please select question type:
+
+    <label>
+      GRAMMAR
+      <input type="radio" value="0" formControlName="type" />
+    </label>
+
+    <label>
+      VOCABULARY
+      <input type="radio" value="1" formControlName="type" />
+    </label>
+  </div>
+
+  <div>
+    Please select question rank:
+
+    <label>
+      EASY
+      <input type="radio" value="0" formControlName="rank" />
+    </label>
+
+    <label>
+      NORMAL
+      <input type="radio" value="1" formControlName="rank" />
+    </label>
+
+    <label>
+      HARD
+      <input type="radio" value="2" formControlName="rank" />
+    </label>
+  </div>
+
+  <label>
+    <input
+      type="text"
+      placeholder="Enter your question"
+      formControlName="question"
+    />
+  </label>
+  <label>
+    <input type="text" placeholder="Answer A" formControlName="A" />
+  </label>
+  <label>
+    <input type="text" placeholder="Answer B" formControlName="B" />
+  </label>
+  <label>
+    <input type="text" placeholder="Answer C" formControlName="C" />
+  </label>
+  <label>
+    <input type="text" placeholder="Answer D" formControlName="D" />
+  </label>
+
+  <div>
+    Select your right answer:
+    <label>
+      A
+      <input type="radio" value="0" formControlName="correctAnswer" />
+    </label>
+
+    <label>
+      B
+      <input type="radio" value="1" formControlName="correctAnswer" />
+    </label>
+
+    <label>
+      C
+      <input type="radio" value="2" formControlName="correctAnswer" />
+    </label>
+
+    <label>
+      D
+      <input type="radio" value="3" formControlName="correctAnswer" />
+    </label>
+
+  </div>
+  <button type="submit" [disabled]="!questionForm.valid">Upload</button>
+</form>
