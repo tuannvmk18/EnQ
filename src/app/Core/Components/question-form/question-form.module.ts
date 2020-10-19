@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { QuestionFormComponent } from './question-form.component';
 import { QuestionEditorComponent } from './question-editor/question-editor.component';
+import { httpInterceptorProviders } from '../../Interceptors';
 
 
 
@@ -13,6 +14,7 @@ import { QuestionEditorComponent } from './question-editor/question-editor.compo
     ReactiveFormsModule,
     FormsModule
   ],
-  exports: [QuestionFormComponent]
+  exports: [QuestionFormComponent],
+  providers: []
 })
 export class QuestionFormModule { }

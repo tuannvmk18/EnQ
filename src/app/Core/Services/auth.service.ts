@@ -12,10 +12,15 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient) {
     this.getUserFromLocalStorage();
+    this.getTokenFromLocalStorage();
   }
 
   private getUserFromLocalStorage(): void {
     this.user = JSON.parse(localStorage.getItem('user'));
+  }
+
+  private getTokenFromLocalStorage(): void {
+    this.token = localStorage.getItem('token');
   }
 
   public login(userName: string, password: string): Observable<unknown> {
@@ -65,5 +70,9 @@ export class AuthService {
 
   get getUser(): any {
     return this.user;
+  }
+
+  get getToken(): string {
+    return this.token;
   }
 }

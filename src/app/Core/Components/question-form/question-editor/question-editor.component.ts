@@ -39,9 +39,17 @@ export class QuestionEditorComponent implements OnInit {
         correctAnswer: Number(this.questionForm.value.correctAnswer)
       }
     }).subscribe({
-      next: x => console.log(x),
-      error: e => console.log(e),
+      next: val => this.handleSuccess(val),
+      error: err => this.handleError(err),
     });
+  }
+
+  handleSuccess(val): void {
+    console.log(val);
+  }
+
+  handleError(err): void {
+    console.log(err);
   }
 
 }
