@@ -15,3 +15,8 @@ export interface reqQuestion{
   rank: Rank;
   answers: Array<Answer>;
 }
+
+// tslint:disable-next-line: class-name
+export interface resQuestion extends reqQuestion{
+  id: string;
+}

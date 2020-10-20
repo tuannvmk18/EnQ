@@ -1,5 +1,6 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { resQuestion } from 'src/app/Core/Interfaces/reqQuestion';
 import { CloudService } from 'src/app/Core/Services/cloud.service';
 
 @Component({
@@ -11,6 +12,8 @@ import { CloudService } from 'src/app/Core/Services/cloud.service';
 export class QuestionEditorComponent implements OnInit {
   questionForm: FormGroup;
 
+  @Input() data: resQuestion;
+  @Input() type: string;
   constructor(private fb: FormBuilder, private cloud: CloudService) {}
 
   ngOnInit(): void {
@@ -24,9 +27,41 @@ export class QuestionEditorComponent implements OnInit {
       D: ['', Validators.compose([Validators.required])],
       correctAnswer: ['', Validators.compose([Validators.required])]
     });
+
+    if (this.type === 'Edit') {
+      if (this.data === undefined) {
+        throw new Error('Data must not empty in Edit mode');
+      } else {
+        this.bindingData(this.data);
+      }
+    }
+
+  }
+
+  bindingData(data: resQuestion): void {
+    this.questionForm.controls.type.setValue(data.type);
+    this.questionForm.controls.rank.setValue(data.rank);
+    this.questionForm.controls.question.setValue(data.title);
+    this.questionForm.controls.A.setValue(data.answers[0].A);
+    this.questionForm.controls.B.setValue(data.answers[0].B);
+    this.questionForm.controls.C.setValue(data.answers[0].C);
+    this.questionForm.controls.D.setValue(data.answers[0].D);
   }
 
   onSubmit(): void {
+    switch (this.type) {
+      case 'Add': {
+        this.postQuestion();
+        break;
+      }
+      case 'Edit': {
+        console.log('EDIT');
+        break;
+      }
+    }
+  }
+
+  postQuestion(): void {
     this.cloud.postQuestion({
       title: this.questionForm.value.question,
       type: this.questionForm.value.type,
