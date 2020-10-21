@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input, ViewChildren, AfterViewInit, QueryList, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { resQuestion } from 'src/app/Core/Interfaces/reqQuestion';
 import { CloudService } from 'src/app/Core/Services/cloud.service';
@@ -9,12 +9,40 @@ import { CloudService } from 'src/app/Core/Services/cloud.service';
   styleUrls: ['./question-editor.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class QuestionEditorComponent implements OnInit {
+export class QuestionEditorComponent implements OnInit, AfterViewInit {
   questionForm: FormGroup;
 
   @Input() data: resQuestion;
   @Input() type: string;
+  @ViewChildren('type') typebtn: QueryList<ElementRef>;
+  @ViewChildren('rank') rankbtn: QueryList<ElementRef>;
+  @ViewChildren('correctAnswer') correctAnswer: QueryList<ElementRef>;
   constructor(private fb: FormBuilder, private cloud: CloudService) {}
+
+  ngAfterViewInit(): void {
+    if (this.type === 'Edit' && this.data !== undefined) {
+      this.typebtn.forEach(x => {
+        // tslint:disable-next-line: triple-equals
+        if (x.nativeElement.value == this.questionForm.controls.type.value) {
+          x.nativeElement.checked = true;
+        }
+      });
+
+      this.rankbtn.forEach(x => {
+        // tslint:disable-next-line: triple-equals
+        if (x.nativeElement.value == this.questionForm.controls.rank.value) {
+          x.nativeElement.checked = true;
+        }
+      });
+    }
+
+    this.correctAnswer.forEach(x => {
+      // tslint:disable-next-line: triple-equals
+      if (x.nativeElement.value == this.questionForm.controls.correctAnswer.value) {
+        x.nativeElement.checked = true;
+      }
+    });
+  }
 
   ngOnInit(): void {
     this.questionForm = this.fb.group({
@@ -46,6 +74,7 @@ export class QuestionEditorComponent implements OnInit {
     this.questionForm.controls.B.setValue(data.answers[0].B);
     this.questionForm.controls.C.setValue(data.answers[0].C);
     this.questionForm.controls.D.setValue(data.answers[0].D);
+    this.questionForm.controls.correctAnswer.setValue(data.answers[0].correctAnswer);
   }
 
   onSubmit(): void {

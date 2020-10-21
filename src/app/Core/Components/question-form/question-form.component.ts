@@ -16,7 +16,7 @@ export class QuestionFormComponent implements OnInit {
       id: "EMfVyJXLS4BZMiyZredm",
       title: "Are there any flowers to the left of your house? _____________.",
       type: 0,
-      rank: 0,
+      rank: 1,
       answers: [{
         A: "Yes, there are",
         B: " Yes, there is",
