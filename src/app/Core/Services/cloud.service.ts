@@ -20,7 +20,7 @@ export class CloudService {
     return this.http.delete(API + `test/question/${id}`).pipe(take(1));
   }
 
-  editQuestionById(id: string, payload: reqQuestion): Observable<unknown> {
+  editQuestionById(id: string, payload: any): Observable<unknown> {
     return this.http.post(API + `test/question/${id}`, payload).pipe(take(1));
   }
 

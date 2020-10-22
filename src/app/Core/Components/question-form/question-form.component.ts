@@ -13,18 +13,18 @@ export class QuestionFormComponent implements OnInit {
 
   constructor() {
     this.data = {
-      id: "kK3eg7T58hqtdNyLCReH",
-      title: "Are there any flowers to the left of your house? _____________.",
+      id: 'kK3eg7T58hqtdNyLCReH',
+      title: 'Are there any flowers to the left of your house? _____________.',
       type: 0,
       rank: 1,
       answers: [{
-        A: "Yes, there are",
-        B: " Yes, there is",
-        C: "No, there isn’t",
-        D: "",
+        A: 'Yes, there are',
+        B: ' Yes, there is',
+        C: 'No, there isn’t',
+        D: '123',
         correctAnswer: 0,
       }],
-    }
+    };
   }
 
   ngOnInit(): void { }

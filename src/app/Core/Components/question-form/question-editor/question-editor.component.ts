@@ -108,15 +108,13 @@ export class QuestionEditorComponent implements OnInit, AfterViewInit {
         title: this.questionForm.value.question,
         type: this.questionForm.value.type,
         rank: this.questionForm.value.rank,
-        answers: [
-          {
-            A: this.questionForm.value.A,
-            B: this.questionForm.value.B,
-            C: this.questionForm.value.C,
-            D: this.questionForm.value.D,
-            correctAnswer: Number(this.questionForm.value.correctAnswer),
-          },
-        ],
+        answer: {
+          A: this.questionForm.value.A,
+          B: this.questionForm.value.B,
+          C: this.questionForm.value.C,
+          D: this.questionForm.value.D,
+          correctAnswer: Number(this.questionForm.value.correctAnswer),
+        },
       })
       .subscribe({
         next: (val) => this.handleEditSuccess(val),
