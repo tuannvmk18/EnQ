@@ -46,8 +46,8 @@ export class QuestionEditorComponent implements OnInit, AfterViewInit {
     }
 
     this.correctAnswer.forEach((x) => {
-      // tslint:disable-next-line: triple-equals
       if (
+        // tslint:disable-next-line: triple-equals
         x.nativeElement.value == this.questionForm.controls.correctAnswer.value
       ) {
         x.nativeElement.checked = true;
@@ -158,5 +158,12 @@ export class QuestionEditorComponent implements OnInit, AfterViewInit {
 
   handlePostError(err): void {
     console.log(err);
+  }
+
+  deleteQuestion(): void {
+    this.cloud.deleteQuestion(this.data.id).subscribe({
+      next: () => alert('Delete success'),
+      error: () => alert('Delete error')
+    });
   }
 }

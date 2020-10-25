@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormArray } from '@angular/forms';
 import { resQuestion } from '../../Interfaces/reqQuestion';
+import { CloudService } from '../../Services/cloud.service';
 @Component({
   selector: 'app-question-form',
   templateUrl: './question-form.component.html',
@@ -9,22 +10,20 @@ import { resQuestion } from '../../Interfaces/reqQuestion';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class QuestionFormComponent implements OnInit {
-  data: resQuestion;
+  data;
 
-  constructor() {
-    this.data = {
-      id: 'kK3eg7T58hqtdNyLCReH',
-      title: 'Are there any flowers to the left of your house? _____________.',
-      type: 0,
-      rank: 1,
-      answers: [{
-        A: 'Yes, there are',
-        B: ' Yes, there is',
-        C: 'No, there isn’t',
-        D: '123',
-        correctAnswer: 0,
-      }],
-    };
+  constructor(private cloud: CloudService) {
+    // this.cloud.getQuestionByType(0).subscribe({
+    //   next: (val: any) => {
+    //     console.log(val);
+    //     this.data = val.data;
+    //   }
+    // });
+
+    this.cloud.deleteQuestion('RLwoSh4VjnPvmIxLivUs').subscribe({
+      next: (x) => console.log(x),
+      error: (x) => console.log(x)
+    });
   }
 
   ngOnInit(): void { }

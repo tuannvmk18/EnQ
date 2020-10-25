@@ -27,4 +27,12 @@ export class CloudService {
   getQuestionById(id: string): Observable<unknown> {
     return this.http.get(API + `test/question/${id}`).pipe(take(1));
   }
+
+  getQuestionByRank(rank) {
+    return this.http.get(API + `test/test-exam-rank?rank=${rank}`).pipe(take(1));
+  }
+
+  getQuestionByType(type) {
+    return this.http.get(API + `test/test-exam-type?type=${type}`).pipe(take(1));
+  }
 }
