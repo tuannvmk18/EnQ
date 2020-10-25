@@ -13,17 +13,8 @@ export class QuestionFormComponent implements OnInit {
   data;
 
   constructor(private cloud: CloudService) {
-    // this.cloud.getQuestionByType(0).subscribe({
-    //   next: (val: any) => {
-    //     console.log(val);
-    //     this.data = val.data;
-    //   }
-    // });
 
-    this.cloud.deleteQuestion('RLwoSh4VjnPvmIxLivUs').subscribe({
-      next: (x) => console.log(x),
-      error: (x) => console.log(x)
-    });
+
   }
 
   ngOnInit(): void { }
