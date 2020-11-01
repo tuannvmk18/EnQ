@@ -28,11 +28,19 @@ export class CloudService {
     return this.http.get(API + `test/question/${id}`).pipe(take(1));
   }
 
-  getQuestionByRank(rank) {
+  getQuestionByRank(rank): Observable<unknown> {
     return this.http.get(API + `test/test-exam-rank?rank=${rank}`).pipe(take(1));
   }
 
-  getQuestionByType(type) {
+  getQuestionByType(type): Observable<unknown> {
     return this.http.get(API + `test/test-exam-type?type=${type}`).pipe(take(1));
+  }
+
+  getLeaderByDay(): Observable<unknown> {
+    return this.http.get(API + 'leaders/day').pipe(take(1));
+  }
+
+  getLeaderByWeek(): Observable<unknown> {
+    return this.http.get(API + 'leader/week').pipe(take(1));
   }
 }
