@@ -24,6 +24,12 @@ const routes: Routes = [
     redirectTo: 'dashboard',
     pathMatch: 'full',
   },
+  {
+    path: '**',
+    redirectTo: 'PageNotFound',
+    pathMatch: 'full',
+  },
+  { path: 'PageNotFound', loadChildren: () => import('./Module/page-not-found/page-not-found.module').then(m => m.PageNotFoundModule) },
 ];
 
 @NgModule({
