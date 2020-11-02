@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LeaderComponent } from 'src/app/Core/Components/leader/leader.component';
 import { QuestionFormComponent } from 'src/app/Core/Components/question-form/question-form.component';
 import { UserManagementComponent } from 'src/app/Core/Components/user-management/user-management.component';
+import { AuthGuard } from 'src/app/Core/Guard/auth.guard';
 import { DashboardComponent } from './dashboard.component';
 
 const routes: Routes = [
@@ -10,7 +11,7 @@ const routes: Routes = [
     {path: 'question', component: QuestionFormComponent},
     {path: 'leader', component: LeaderComponent},
     {path: 'user', component: UserManagementComponent}
-  ]}];
+  ], canActivate: [AuthGuard]}];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
