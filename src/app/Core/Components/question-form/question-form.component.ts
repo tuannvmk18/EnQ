@@ -12,11 +12,11 @@ import { QuestionEditorComponent } from './question-editor/question-editor.compo
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class QuestionFormComponent implements OnInit {
-  data;
+  data: any;
 
   constructor(private cloud: CloudService, private dialog: MatDialog) {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
   openUploadQuestionForm(): void {
     const dialogRef = this.dialog.open(QuestionEditorComponent, {
