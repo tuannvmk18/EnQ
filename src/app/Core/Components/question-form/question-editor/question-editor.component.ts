@@ -26,7 +26,7 @@ export class QuestionEditorComponent implements OnInit, AfterViewInit {
   @ViewChildren('type') typebtn: QueryList<ElementRef>;
   @ViewChildren('rank') rankbtn: QueryList<ElementRef>;
   @ViewChildren('correctAnswer') correctAnswer: QueryList<ElementRef>;
-  constructor(private fb: FormBuilder, private cloud: CloudService) {}
+  constructor(private fb: FormBuilder, private cloud: CloudService) { }
 
   ngAfterViewInit(): void {
     if (this.type === 'Edit' && this.data !== undefined) {
@@ -90,16 +90,7 @@ export class QuestionEditorComponent implements OnInit, AfterViewInit {
   }
 
   onSubmit(): void {
-    switch (this.type) {
-      case 'Add': {
-        this.postQuestion();
-        break;
-      }
-      case 'Edit': {
-        this.editQuestion();
-        break;
-      }
-    }
+    this.postQuestion();
   }
 
   editQuestion(): void {
@@ -136,15 +127,14 @@ export class QuestionEditorComponent implements OnInit, AfterViewInit {
         title: this.questionForm.value.question,
         type: this.questionForm.value.type,
         rank: this.questionForm.value.rank,
-        answers: [
-          {
-            A: this.questionForm.value.A,
-            B: this.questionForm.value.B,
-            C: this.questionForm.value.C,
-            D: this.questionForm.value.D,
-            correctAnswer: Number(this.questionForm.value.correctAnswer),
-          },
-        ],
+        answer:
+        {
+          A: this.questionForm.value.A,
+          B: this.questionForm.value.B,
+          C: this.questionForm.value.C,
+          D: this.questionForm.value.D,
+          correctAnswer: Number(this.questionForm.value.correctAnswer),
+        },
       })
       .subscribe({
         next: (val) => this.handlePostSuccess(val),

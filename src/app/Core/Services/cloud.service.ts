@@ -12,7 +12,7 @@ export class CloudService {
 
   constructor(private http: HttpClient) { }
 
-  postQuestion(payload: reqQuestion): Observable<unknown> {
+  postQuestion(payload: any): Observable<unknown> {
     return this.http.post(API + 'test/question', payload).pipe(take(1));
   }
 
@@ -28,13 +28,13 @@ export class CloudService {
     return this.http.get(API + `test/question/${id}`).pipe(take(1));
   }
 
-  getQuestionByRank(rank): Observable<unknown> {
-    return this.http.get(API + `test/test-exam-rank?rank=${rank}`).pipe(take(1));
-  }
+  // getQuestionByRank(rank): Observable<unknown> {
+  //   return this.http.get(API + `test/test-exam-rank?rank=${rank}`).pipe(take(1));
+  // }
 
-  getQuestionByType(type): Observable<unknown> {
-    return this.http.get(API + `test/test-exam-type?type=${type}`).pipe(take(1));
-  }
+  // getQuestionByType(type): Observable<unknown> {
+  //   return this.http.get(API + `test/test-exam-type?type=${type}`).pipe(take(1));
+  // }
 
   getLeaderByDay(): Observable<unknown> {
     return this.http.get(API + 'leaders/day').pipe(take(1));
