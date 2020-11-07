@@ -1,0 +1,12 @@
+.all {
+  display: flex;
+  width: 100vw;
+
+  .side-bar {
+    width: 30%;
+  }
+
+  .main-content {
+    width: 70%;
+  }
+}
