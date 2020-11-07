@@ -1,11 +1,27 @@
 <app-nav-bar></app-nav-bar>
-<div class="all">
-  <div class="side-bar">
-    <button routerLink="user">User</button>
-    <button routerLink="question">Question</button>
-    <button routerLink="leader">Leader</button>
+<div class="s-layout">
+    <div class="s-sidebar__nav">
+       <ul>
+          <li>
+             <a class="s-sidebar__nav-link" routerLink="user">
+                <em>User</em>
+             </a>
+          </li>
+          <li>
+             <a class="s-sidebar__nav-link" routerLink="question">
+               <em>Question</em>
+             </a>
+          </li>
+          <li>
+             <a class="s-sidebar__nav-link" routerLink="leader">
+              <em>Leader</em>
+             </a>
+          </li>
+       </ul>
+    </div>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
   </div>
-  <div class="main-content">
-    <router-outlet></router-outlet>
-  </div>
-</div>
+
+
