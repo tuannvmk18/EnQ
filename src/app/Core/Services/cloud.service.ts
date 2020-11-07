@@ -28,6 +28,10 @@ export class CloudService {
     return this.http.get(API + `test/question/${id}`).pipe(take(1));
   }
 
+  getAllQuestion(): Observable<unknown> {
+    return this.http.get(API + 'test/questions').pipe(take(1));
+  }
+
   // getQuestionByRank(rank): Observable<unknown> {
   //   return this.http.get(API + `test/test-exam-rank?rank=${rank}`).pipe(take(1));
   // }
