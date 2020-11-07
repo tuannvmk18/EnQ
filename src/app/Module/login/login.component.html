@@ -13,7 +13,7 @@
         <h2>Welcome to EnQ</h2>
         <div class="form-control">
           <!-- <label for="email_input">Email: </label> -->
-          <input type="text" id="email-input" class="form-input" placeholder="Email" formControlName="userName">
+          <input type="text" id="email-input" class="form-input" placeholder="Email" formControlName="userName" required autocomplete="off" >
         </div>
         <div class="form-control">
           <!-- <label for="password_input">Password: </label> -->
@@ -21,7 +21,7 @@
         </div>
         <button type="submit" [disabled]="!LoginForm.valid">Login</button>
         <!-- <p>If you don't have an account <span id="signUp" (click) = onClickSignUp()>Sign up</span> here</p> -->
-
+        <p class="title-sign-up">Have an account? <a routerLink="/signup">SignUp here</a> </p>
       </form>
     </div>
 
