@@ -13,7 +13,7 @@ import { QuestionEditorComponent } from './question-editor/question-editor.compo
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class QuestionFormComponent implements OnInit {
-  data: any = null;
+  data: [] = null;
 
   constructor(private cloud: CloudService, private dialog: MatDialog, private changeDetection: ChangeDetectorRef) {}
 

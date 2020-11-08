@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { API } from 'src/environments/environment';
 import { catchError, concatAll, map, take, tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root',
 })
@@ -10,9 +11,15 @@ export class AuthService {
   private user: any = null;
   private token: string = null;
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private router: Router) {
     this.getUserFromLocalStorage();
     this.getTokenFromLocalStorage();
+  }
+
+  public signOut(): void {
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    this.router.navigate(['login']);
   }
 
   private getUserFromLocalStorage(): void {
