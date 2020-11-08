@@ -1,3 +1,4 @@
+import { ChangeDetectorRef } from '@angular/core';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FormArray } from '@angular/forms';
@@ -12,11 +13,16 @@ import { QuestionEditorComponent } from './question-editor/question-editor.compo
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class QuestionFormComponent implements OnInit {
-  data: any;
+  data: any = null;
 
-  constructor(private cloud: CloudService, private dialog: MatDialog) {}
+  constructor(private cloud: CloudService, private dialog: MatDialog, private changeDetection: ChangeDetectorRef) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.cloud.getAllQuestion().subscribe((x: any) => {
+      this.data = x.data;
+      this.changeDetection.detectChanges();
+    });
+  }
 
   openUploadQuestionForm(): void {
     const dialogRef = this.dialog.open(QuestionEditorComponent, {

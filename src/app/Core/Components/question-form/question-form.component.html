@@ -1,4 +1,6 @@
 <!-- <app-question-editor [type]="'Edit'" [data]="data"></app-question-editor> -->
 <button (click)="openUploadQuestionForm()">+</button>
 
-
+<div *ngFor="let m of data">
+  {{m._id}}
+</div>
