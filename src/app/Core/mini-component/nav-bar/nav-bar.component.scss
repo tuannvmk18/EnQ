@@ -1,9 +1,13 @@
-.nav-bar{
-  display: flex;
-  justify-content: space-between;
-}
+mat-toolbar{
+  border: 1px solid gray;
+  font-family: 'Montserrat', sans-serif;
 
-.sidebar-content {
-  flex: 1 1 auto;
-  font-family: "Montserrat", sans-serif;
+  .sidebar-content {
+    flex: 1 1 auto;
+  }
+
+  button{
+    font-family: 'Montserrat', sans-serif;
+  }
+
 }
