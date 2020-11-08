@@ -7,8 +7,10 @@ import {
   AfterViewInit,
   QueryList,
   ElementRef,
+  Inject,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { resQuestion } from 'src/app/Core/Interfaces/reqQuestion';
 import { CloudService } from 'src/app/Core/Services/cloud.service';
 
@@ -22,12 +24,17 @@ export class QuestionEditorComponent implements OnInit, AfterViewInit {
   questionForm: FormGroup;
   isLinear =false;
 
-  @Input() data: resQuestion;
+  @Input() data: any;
   @Input() type: string;
   @ViewChildren('type') typebtn: QueryList<ElementRef>;
   @ViewChildren('rank') rankbtn: QueryList<ElementRef>;
   @ViewChildren('correctAnswer') correctAnswer: QueryList<ElementRef>;
-  constructor(private fb: FormBuilder, private cloud: CloudService) { }
+  constructor(private fb: FormBuilder, private cloud: CloudService, @Inject(MAT_DIALOG_DATA) public dataF: any) {
+    if (dataF) {
+      this.type = dataF.type;
+      this.data = dataF.data;
+    }
+  }
 
   ngAfterViewInit(): void {
     if (this.type === 'Edit' && this.data !== undefined) {
@@ -57,6 +64,7 @@ export class QuestionEditorComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    console.log(this.data);
     this.questionForm = this.fb.group({
       type: ['', Validators.compose([Validators.required])],
       rank: ['', Validators.compose([Validators.required])],
@@ -77,26 +85,32 @@ export class QuestionEditorComponent implements OnInit, AfterViewInit {
     }
   }
 
-  bindingData(data: resQuestion): void {
+  bindingData(data: any): void {
     this.questionForm.controls.type.setValue(data.type);
     this.questionForm.controls.rank.setValue(data.rank);
     this.questionForm.controls.question.setValue(data.title);
-    this.questionForm.controls.A.setValue(data.answers[0].A);
-    this.questionForm.controls.B.setValue(data.answers[0].B);
-    this.questionForm.controls.C.setValue(data.answers[0].C);
-    this.questionForm.controls.D.setValue(data.answers[0].D);
+    this.questionForm.controls.A.setValue(data.answer.A);
+    this.questionForm.controls.B.setValue(data.answer.B);
+    this.questionForm.controls.C.setValue(data.answer.C);
+    this.questionForm.controls.D.setValue(data.answer.D);
     this.questionForm.controls.correctAnswer.setValue(
-      data.answers[0].correctAnswer
+      data.answer.correctAnswer
     );
   }
 
   onSubmit(): void {
-    this.postQuestion();
+    // tslint:disable-next-line: triple-equals
+    if (this.type == 'Add') {
+      this.postQuestion();
+    // tslint:disable-next-line: triple-equals
+    } else if (this.type == 'Edit') {
+      this.editQuestion();
+    }
   }
 
   editQuestion(): void {
     this.cloud
-      .editQuestionById(this.data.id, {
+      .editQuestionById(this.data._id, {
         title: this.questionForm.value.question,
         type: this.questionForm.value.type,
         rank: this.questionForm.value.rank,

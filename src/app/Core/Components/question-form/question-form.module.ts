@@ -9,8 +9,9 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
+import { QuestionViewComponent } from './question-view/question-view.component';
 @NgModule({
-  declarations: [QuestionFormComponent, QuestionEditorComponent],
+  declarations: [QuestionFormComponent, QuestionEditorComponent, QuestionViewComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
