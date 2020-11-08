@@ -1,10 +1,3 @@
-<!-- <form [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
-  <input type="text" formControlName="userName">
-  <input type="password" formControlName="password">
-  <button type="submit" [disabled]="!LoginForm.valid">Login</button>
-  <pre>{{LoginForm.value | json}}</pre>
-</form> -->
-
 <div class="page-content">
   <div class="container-form" id="container">
     <div class="form-container sign-in-container">
@@ -12,27 +5,20 @@
         <img class="logo" src="../../../assets/logo-noname.svg">
         <h2>Welcome to EnQ</h2>
         <div class="form-control">
-          <!-- <label for="email_input">Email: </label> -->
-          <input type="text" id="email-input" class="form-input" placeholder="Email" formControlName="userName" required autocomplete="off" >
+          <input type="text" class="form-input" placeholder="Email" formControlName="userName" required autocomplete="off" >
         </div>
         <div class="form-control">
-          <!-- <label for="password_input">Password: </label> -->
-          <input type="password" id="password-input" class="form-input" placeholder="Password" formControlName="password">
+          <input type="password" class="form-input" placeholder="Password" formControlName="password">
         </div>
         <button type="submit" [disabled]="!LoginForm.valid">Login</button>
-        <!-- <p>If you don't have an account <span id="signUp" (click) = onClickSignUp()>Sign up</span> here</p> -->
         <p class="title-sign-up">Have an account? <a routerLink="/signup">SignUp here</a> </p>
       </form>
     </div>
-
 
     <!-----------   overlay   -------------->
     <div class="overlay-container">
       <div class="overlay">
         <div class="overlay-panel overlay-right">
-          <!-- <h1>Hello, Friend!</h1>
-          <p>Enter your details and start journey with us</p>
-          <button class="ghost" id="signUp" (click) = onClickSignUp()>Sign Up</button> -->
           <img class="image" src="../../../assets/login.svg">
           <p class="quote">Improve your English with EnQ</p>
         </div>
