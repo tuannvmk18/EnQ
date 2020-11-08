@@ -13,13 +13,13 @@ import { QuestionViewComponent } from './question-view/question-view.component';
 export class QuestionFormComponent implements OnInit {
   data: [] = null;
 
-  constructor(private cloud: CloudService, private dialog: MatDialog, private changeDetection: ChangeDetectorRef) {}
+  constructor(private cloud: CloudService, private dialog: MatDialog, private changeDetection: ChangeDetectorRef) { }
 
   ngOnInit(): void {
     this.loadQuestion();
   }
 
-  private loadQuestion() {
+  private loadQuestion(): void {
     this.cloud.getAllQuestion().subscribe((x: any) => {
       this.data = x.data;
       this.changeDetection.detectChanges();
@@ -47,7 +47,7 @@ export class QuestionFormComponent implements OnInit {
     this.loadQuestion();
   }
 
-  openViewQuestion(data) {
+  openViewQuestion(data): void {
     const dialogRef = this.dialog.open(QuestionViewComponent, {
       data: {
         data
@@ -55,7 +55,7 @@ export class QuestionFormComponent implements OnInit {
     });
   }
 
-  editQuestion(payload) {
+  editQuestion(payload): void {
     const dialogRef = this.dialog.open(QuestionEditorComponent, {
       data: {
         type: 'Edit',

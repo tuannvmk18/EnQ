@@ -15,7 +15,7 @@ export class QuestionViewComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.dataF);
-    if(this.dataF) {
+    if (this.dataF) {
       this.data = this.dataF.data;
     }
   }

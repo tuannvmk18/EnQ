@@ -98,8 +98,10 @@ export class QuestionEditorComponent implements OnInit, AfterViewInit {
   }
 
   onSubmit(): void {
+    // tslint:disable-next-line: triple-equals
     if (this.type == 'Add') {
       this.postQuestion();
+    // tslint:disable-next-line: triple-equals
     } else if (this.type == 'Edit') {
       this.editQuestion();
     }
