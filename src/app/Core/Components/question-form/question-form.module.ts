@@ -6,8 +6,9 @@ import { QuestionEditorComponent } from './question-editor/question-editor.compo
 import {OverlayModule} from '@angular/cdk/overlay';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+import { QuestionViewComponent } from './question-view/question-view.component';
 @NgModule({
-  declarations: [QuestionFormComponent, QuestionEditorComponent],
+  declarations: [QuestionFormComponent, QuestionEditorComponent, QuestionViewComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,

@@ -14,8 +14,9 @@
       <th scope="row">{{m._id}}</th>
       <th scope="row">{{m.title}}</th>
       <th scope="row">
-        <button mat-flat-button>View</button>
-        <button mat-flat-button>Delete</button>
+        <button mat-flat-button (click)="openViewQuestion(m)">View</button>
+        <button mat-flat-button (click)="editQuestion(m)">Edit</button>
+        <button mat-flat-button (click)="deleteQuestion(m._id)">Delete</button>
       </th>
     </tr>
   </tbody>

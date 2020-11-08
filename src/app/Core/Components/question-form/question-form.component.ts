@@ -1,11 +1,9 @@
 import { ChangeDetectorRef } from '@angular/core';
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FormArray } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
-import { resQuestion } from '../../Interfaces/reqQuestion';
 import { CloudService } from '../../Services/cloud.service';
 import { QuestionEditorComponent } from './question-editor/question-editor.component';
+import { QuestionViewComponent } from './question-view/question-view.component';
 @Component({
   selector: 'app-question-form',
   templateUrl: './question-form.component.html',
@@ -18,6 +16,10 @@ export class QuestionFormComponent implements OnInit {
   constructor(private cloud: CloudService, private dialog: MatDialog, private changeDetection: ChangeDetectorRef) {}
 
   ngOnInit(): void {
+    this.loadQuestion();
+  }
+
+  private loadQuestion() {
     this.cloud.getAllQuestion().subscribe((x: any) => {
       this.data = x.data;
       this.changeDetection.detectChanges();
@@ -32,4 +34,33 @@ export class QuestionFormComponent implements OnInit {
     });
   }
 
+  deleteQuestion(id: string): void {
+    console.log(id);
+    this.cloud.deleteQuestion(id).subscribe({
+      next: (x) => this.deleteQuestionSuccess(x),
+      error: e => console.log(e)
+    });
+  }
+
+  private deleteQuestionSuccess(x): void {
+    console.log(x);
+    this.loadQuestion();
+  }
+
+  openViewQuestion(data) {
+    const dialogRef = this.dialog.open(QuestionViewComponent, {
+      data: {
+        data
+      }
+    });
+  }
+
+  editQuestion(payload) {
+    const dialogRef = this.dialog.open(QuestionEditorComponent, {
+      data: {
+        type: 'Edit',
+        data: payload
+      }
+    });
+  }
 }
