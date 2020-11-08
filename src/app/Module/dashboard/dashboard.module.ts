@@ -1,3 +1,4 @@
+import { MiniComponentModule } from './../../Core/mini-component/mini-component.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -11,7 +12,8 @@ import { QuestionFormModule } from 'src/app/Core/Components/question-form/questi
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    QuestionFormModule
+    QuestionFormModule,
+    MiniComponentModule
   ]
 })
 export class DashboardModule { }
