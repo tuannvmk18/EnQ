@@ -1,3 +1,9 @@
+.nav-bar{
+  display: flex;
+  justify-content: space-between;
+}
+
 .sidebar-content {
   flex: 1 1 auto;
+  font-family: "Montserrat", sans-serif;
 }
