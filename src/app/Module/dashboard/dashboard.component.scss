@@ -1,10 +1,12 @@
 .sidebar-layout{
   display: flex;
+  flex-direction: row;
   width: 100vw;
 
   .sidebar-content{
     width: 10vw;
     height: 100vh;
+    overflow: hidden;
     background-color: #F5F5F5;
     a{
       text-decoration: none;

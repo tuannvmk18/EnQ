@@ -1,9 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:500,700");
-$font-size: 1.75rem;
+$font-size1: 1.5rem;
+$font-size2: 1.75rem;
 $font-family: 'Montserrat'; 
 
 .question-container{
     font-family: 'Montserrat', sans-serif;
+    text-align: center;
 }
 
 .step-label{
@@ -16,10 +18,12 @@ $font-family: 'Montserrat';
     font-family: 'Montserrat', sans-serif;
     display: flex;
     justify-content: space-between;
-    font-size: $font-size;
+    font-size: $font-size1;
 }
 .button{
     margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
 }
 
 .question-form-head{
@@ -29,11 +33,11 @@ $font-family: 'Montserrat';
 
 .ques-input{
     font-family: "Montserrat", sans-serif;
-    font-size: $font-size;
+    font-size: $font-size2;
 }
 
 .question-ans{
-    font-size: $font-size;
+    font-size: $font-size2;
     font-family: 'Montserrat', sans-serif;
     padding: 0.8rem;
 }
@@ -61,6 +65,7 @@ $font-family: 'Montserrat';
 .question-form-bottom{
     margin-top: 1rem;
     padding: 1rem;
+    font-size: $font-size1;
     font-family: 'Montserrat', sans-serif;
     display: flex;
     justify-content: space-between;
