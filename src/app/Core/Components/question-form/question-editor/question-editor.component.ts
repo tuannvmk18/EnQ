@@ -22,6 +22,7 @@ import { CloudService } from 'src/app/Core/Services/cloud.service';
 })
 export class QuestionEditorComponent implements OnInit, AfterViewInit {
   questionForm: FormGroup;
+  isLinear =false;
 
   @Input() data: any;
   @Input() type: string;
