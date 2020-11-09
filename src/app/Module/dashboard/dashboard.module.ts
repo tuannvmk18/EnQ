@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { QuestionFormModule } from 'src/app/Core/Components/question-form/question-form.module';
-
+import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [DashboardComponent],
@@ -13,7 +13,8 @@ import { QuestionFormModule } from 'src/app/Core/Components/question-form/questi
     CommonModule,
     DashboardRoutingModule,
     QuestionFormModule,
-    MiniComponentModule
+    MiniComponentModule,
+    MatSidenavModule
   ]
 })
 export class DashboardModule { }
