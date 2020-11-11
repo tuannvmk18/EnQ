@@ -9,6 +9,7 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
 import { QuestionViewComponent } from './question-view/question-view.component';
 @NgModule({
   declarations: [QuestionFormComponent, QuestionEditorComponent, QuestionViewComponent],
@@ -21,7 +22,8 @@ import { QuestionViewComponent } from './question-view/question-view.component';
     MatStepperModule,
     MatFormFieldModule,
     MatButtonModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule
   ],
   exports: [QuestionFormComponent],
   providers: []
