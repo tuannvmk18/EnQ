@@ -9,19 +9,25 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Title</th>
-                <th scope="col" style="padding-left: 5%;">Action</th>
+                <th scope="col" style="width:10%">ID</th>
+                <th scope="col" style="width:50%">Title</th>
+                <th scope="col" style="padding-left: 3%; width: 15%;">Action</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody style="margin-right: 2%;">
             <tr *ngFor="let m of data">
                 <th scope="row">{{m._id}}</th>
                 <th scope="row">{{m.title}}</th>
                 <th scope="row">
-                    <button mat-flat-button (click)="openViewQuestion(m)">View</button>
-                    <button mat-flat-button (click)="editQuestion(m)">Edit</button>
-                    <button mat-flat-button (click)="deleteQuestion(m._id)">Delete</button>
+                    <button mat-icon-button (click)="openViewQuestion(m)" color="primary" style="outline: none;">
+                        <mat-icon>visibility</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="editQuestion(m)" style="outline: none;" class="edit-btn">
+                        <mat-icon>create</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="deleteQuestion(m._id)" color="warn" style="outline: none;">
+                        <mat-icon>delete</mat-icon>
+                    </button>
                 </th>
             </tr>
         </tbody>
