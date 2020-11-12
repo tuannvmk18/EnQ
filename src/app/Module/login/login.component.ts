@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   }
 
   handleError(e: any): void {
-
+    console.log(e);
   }
 
 

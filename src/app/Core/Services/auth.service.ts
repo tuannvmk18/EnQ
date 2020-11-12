@@ -39,16 +39,16 @@ export class AuthService {
       .pipe(
         take(1),
         tap((res: any) => {
-          if (!res.token) {
+          if (!res.data.token) {
             throw new Error('Failed to login');
           }
-          this.token = res.token;
-          localStorage.setItem('token', res.token);
+          this.token = res.data.token;
+          localStorage.setItem('token', res.data.token);
         })
       );
 
     const $combined = $outer.pipe(
-      map((res: any) => this.getAdminUserInfo(res.token)),
+      map((res: any) => this.getAdminUserInfo(res.data.token)),
       concatAll()
     );
 
