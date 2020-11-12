@@ -1,37 +1,7 @@
-.header-content {
-    display: flex;
-    justify-content: space-around;
+.paginator {
+  max-width: 100%;
 }
 
-h1 {
-    margin-top: 2rem;
-    font-size: 3rem;
-}
-
-.button {
-    padding: 0;
-    margin-right: 1rem;
-    margin-top: 1rem;
-    font-size: 2rem;
-    width: 2rem !important;
-    height: 4rem !important;
-    border: none;
-    outline: none;
-}
-
-.table {
-    margin-top: 2rem;
-    font-family: "Montserrat", sans-serif;
-}
-
-th {
-    font-family: 'Montserrat', sans-serif;
-}
-
-.table-content {
-    padding: 1.5rem;
-}
-
-.edit-btn {
-    color: #0e918c;
+.form {
+  width: 100%;
 }
