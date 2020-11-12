@@ -52,8 +52,8 @@
           D
           <input type="radio" value="3" formControlName="correctAnswer" #correctAnswer/>
         </label>
-      </div>
-      <div class="type-rank">
+      </div> -->
+      <!-- <div class="type-rank">
         Question's type:
         <label>
           GRAMMAR
@@ -84,17 +84,46 @@
         </label>
       </div> -->
 
-
-      <section>
+      <div class="question-form-bottom">
         Select your right answer:
-        <mat-radio-group>
-          <mat-radio-button [color]="'primary'" class="example-margin" ngDefaultControl value="0" formControlName="rank" #rank>EASY</mat-radio-button>
-          <mat-radio-button [color]="'primary'" class="example-margin" ngDefaultControl value="1" formControlName="rank" #rank>NORMAL</mat-radio-button>
-          <mat-radio-button [color]="'primary'" class="example-margin" ngDefaultControl value="2" formControlName="rank" #rank>HARD</mat-radio-button>
+        <mat-radio-group class="radio-group">
+          <mat-radio-button [color]="'primary'" class="example-margin" ngDefaultControl value="0" formControlName="correctAnswer" #correctAnswer>A
+          </mat-radio-button>
+          <mat-radio-button [color]="'primary'" class="example-margin" ngDefaultControl value="1" formControlName="correctAnswer" #correctAnswer>B
+          </mat-radio-button>
+          <mat-radio-button  [color]="'primary'" class="example-margin" ngDefaultControl value="2" formControlName="correctAnswer" #correctAnswer>C
+          </mat-radio-button>
+          <mat-radio-button  [color]="'primary'" class="example-margin" ngDefaultControl value="3" formControlName="correctAnswer" #correctAnswer>D
+          </mat-radio-button>
         </mat-radio-group>
-      </section>
+      </div>
 
-      <section>
+      <div class="question-form-bottom">
+        <mat-form-field appearance="fill" class="type-rank">
+          <mat-label>Question type</mat-label>
+          <mat-select [formGroup]="questionForm" formControlName="type" #type>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let type_selected of types" [value]="type_selected.value">
+              {{type_selected.name}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="questionForm.hasError('required')">Please choose a type</mat-error>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill" class="type-rank">
+          <mat-label>Question rank</mat-label>
+          <mat-select [formGroup]="questionForm" formControlName="rank" #rank>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let rank_selected of ranks" [value]="rank_selected.value">
+              {{rank_selected.name}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="questionForm.hasError('required')">Please choose a rank</mat-error>
+        </mat-form-field>
+      </div>
+      
+
+      <!-- <section>
         Question's type:
         <mat-radio-group>
           <mat-radio-button [color]="'primary'" class="example-margin" ngDefaultControl value="0" formControlName="type" #type>GRAMMAR
@@ -116,7 +145,7 @@
           <mat-radio-button  [color]="'primary'" class="example-margin" ngDefaultControl value="3" formControlName="correctAnswer" #correctAnswer>D
           </mat-radio-button>
         </mat-radio-group>
-      </section>
+      </section> -->
 
 
       <div class="button">

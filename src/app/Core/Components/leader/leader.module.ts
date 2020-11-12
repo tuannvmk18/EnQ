@@ -12,15 +12,10 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
   imports: [
     CommonModule,
     LeaderRoutingModule,
-<<<<<<< HEAD
     MatTableModule,
     MatPaginatorModule
   ],
   exports:[LeaderComponent],
   providers: []
-=======
-
-  ],
->>>>>>> b38cdfd06c860203b8f8698c056c1c398262e9ac
 })
 export class LeaderModule { }
