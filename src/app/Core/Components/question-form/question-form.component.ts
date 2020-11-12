@@ -54,6 +54,12 @@ export class QuestionFormComponent implements OnInit, AfterViewInit {
     });
   }
 
+  public reloadData(): void {
+    this.cloud.getAllQuestion().subscribe((x: any) => {
+      this.data.data = x.data;
+    });
+  }
+
   openUploadQuestionForm(): void {
     const dialogRef = this.dialog.open(QuestionEditorComponent, {
       data: {
@@ -63,16 +69,14 @@ export class QuestionFormComponent implements OnInit, AfterViewInit {
   }
 
   deleteQuestion(id: string): void {
-    console.log(id);
     this.cloud.deleteQuestion(id).subscribe({
-      next: (x) => this.deleteQuestionSuccess(x),
+      next: (x) => this.deleteQuestionSuccess(x, id),
       error: e => console.log(e)
     });
   }
 
-  private deleteQuestionSuccess(x): void {
-    console.log(x);
-    this.loadQuestion();
+  private deleteQuestionSuccess(x, id): void {
+    this.data.data = this.data.data.filter((x: any) => x._id !== id);
   }
 
   openViewQuestion(data): void {
