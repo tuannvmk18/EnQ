@@ -5,13 +5,13 @@ import { LeaderRoutingModule } from './leader-routing.module';
 import { LeaderComponent } from './leader.component';
 
 
-
 @NgModule({
   declarations: [LeaderComponent],
   imports: [
     CommonModule,
     LeaderRoutingModule,
-
   ],
+  exports:[LeaderComponent],
+  providers: []
 })
 export class LeaderModule { }
