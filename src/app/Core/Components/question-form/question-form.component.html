@@ -1,16 +1,15 @@
 <div class="top-table">
-    <mat-form-field>
+    <mat-form-field style="margin-left: 2.2rem;">
         <mat-label>Search</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Ex. hello, how are you?" #input>
     </mat-form-field>
-
-    <div class="tool">
-        <button (click)="openUploadQuestionForm()" class="bnt-top" mat-raised-button color="primary">+</button>
-        <button style="color: #fafafa; border: none; outline: none;"></button>
-        <button class="bnt-top" mat-raised-button color="primary">reload</button>
+    <div class="bnt-tool">
+        <ul>
+            <li><button (click)="openUploadQuestionForm()" class="bnt-top" mat-raised-button color="primary" style="margin:1rem 2rem 0 0;">+</button></li>
+            <li><button class="bnt-top" mat-raised-button color="primary" style="margin:1rem 3rem 0 0;">reload</button></li>
+        </ul>
     </div>
 </div>
-
 
 <div class="mat-elevation-z8 form">
     <table mat-table [dataSource]="data" matSort class="table">

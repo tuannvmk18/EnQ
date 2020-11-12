@@ -13,9 +13,17 @@ th {
 .top-table {
     display: flex;
     justify-content: space-between;
-    margin: 1% 2% 0% 2%;
 }
 
 .bnt-top {
     outline: none;
+}
+
+li {
+    list-style: none;
+}
+
+.bnt-tool ul {
+    display: flex;
+    justify-content: space-between;
 }
