@@ -20,19 +20,19 @@ export class QuestionFormComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-
-  constructor(private cloud: CloudService, private dialog: MatDialog, private changeDetection: ChangeDetectorRef) {
+  constructor(
+    private cloud: CloudService,
+    private dialog: MatDialog,
+    private changeDetection: ChangeDetectorRef
+  ) {
     this.loadQuestion();
   }
 
   ngAfterViewInit(): void {
     console.log(this.paginator);
-
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -43,7 +43,7 @@ export class QuestionFormComponent implements OnInit, AfterViewInit {
     }
   }
 
-  private loadQuestion(): void {
+  public loadQuestion(): void {
     this.cloud.getAllQuestion().subscribe((x: any) => {
       this.data = new MatTableDataSource(x.data);
       this.dataLength = x.data.length;
@@ -54,24 +54,18 @@ export class QuestionFormComponent implements OnInit, AfterViewInit {
     });
   }
 
-  public reloadData(): void {
-    this.cloud.getAllQuestion().subscribe((x: any) => {
-      this.data.data = x.data;
-    });
-  }
-
   openUploadQuestionForm(): void {
     const dialogRef = this.dialog.open(QuestionEditorComponent, {
       data: {
-        type: 'Add'
-      }
+        type: 'Add',
+      },
     });
   }
 
   deleteQuestion(id: string): void {
     this.cloud.deleteQuestion(id).subscribe({
       next: (x) => this.deleteQuestionSuccess(x, id),
-      error: e => console.log(e)
+      error: (e) => console.log(e),
     });
   }
 
@@ -82,8 +76,8 @@ export class QuestionFormComponent implements OnInit, AfterViewInit {
   openViewQuestion(data): void {
     const dialogRef = this.dialog.open(QuestionViewComponent, {
       data: {
-        data
-      }
+        data,
+      },
     });
   }
 
@@ -91,8 +85,8 @@ export class QuestionFormComponent implements OnInit, AfterViewInit {
     const dialogRef = this.dialog.open(QuestionEditorComponent, {
       data: {
         type: 'Edit',
-        data: payload
-      }
+        data: payload,
+      },
     });
   }
 }
