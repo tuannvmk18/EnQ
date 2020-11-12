@@ -12,7 +12,10 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { QuestionViewComponent } from './question-view/question-view.component';
 import {MatTableModule} from '@angular/material/table';
-import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
 @NgModule({
   declarations: [QuestionFormComponent, QuestionEditorComponent, QuestionViewComponent],
   imports: [
@@ -27,7 +30,10 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
     MatInputModule,
     MatIconModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatProgressSpinnerModule,
+    MatCheckboxModule,
+    MatRadioModule
   ],
   exports: [QuestionFormComponent],
   providers: []
