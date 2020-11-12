@@ -16,6 +16,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatSelectModule} from '@angular/material/select';
+
+
 @NgModule({
   declarations: [QuestionFormComponent, QuestionEditorComponent, QuestionViewComponent],
   imports: [
@@ -33,7 +36,8 @@ import {MatRadioModule} from '@angular/material/radio';
     MatPaginatorModule,
     MatProgressSpinnerModule,
     MatCheckboxModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSelectModule
   ],
   exports: [QuestionFormComponent],
   providers: []

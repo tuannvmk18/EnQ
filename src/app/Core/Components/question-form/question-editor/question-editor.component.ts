@@ -19,6 +19,11 @@ import { delay } from 'rxjs/operators';
 import { resQuestion } from 'src/app/Core/Interfaces/reqQuestion';
 import { CloudService } from 'src/app/Core/Services/cloud.service';
 
+interface Select {
+  name: string;
+  value: string;
+}
+
 @Component({
   selector: 'app-question-editor',
   templateUrl: './question-editor.component.html',
@@ -29,6 +34,18 @@ export class QuestionEditorComponent implements OnInit, AfterViewInit {
   questionForm: FormGroup;
   isLinear = false;
   isLoading = false;
+
+  types: Select[] = [
+    {name: 'Grammar', value: "0"},
+    {name: 'Vocabulary', value: "1"}
+  ];
+
+  ranks: Select[] = [
+    {name: 'Easy', value: "0"},
+    {name: 'Normal', value: "1"},
+    {name: 'Hard', value: "2"}
+  ];
+
 
   @Input() data: any;
   @Input() type: string;

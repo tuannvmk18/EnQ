@@ -3,18 +3,18 @@ $font-size1: 1.5rem;
 $font-size2: 1.75rem;
 $font-family: 'Montserrat';
 
+h1{
+    font-size: 3rem;
+}
+
 .question-container{
     font-family: 'Montserrat', sans-serif;
     text-align: center;
 }
 
-.step-label{
-    font-size: 2rem;
-    font-family: 'Montserrat', sans-serif;
-}
-
 .type-rank{
-    padding: 1rem;
+    padding: 0;
+    padding-right: 1rem;
     font-family: 'Montserrat', sans-serif;
     display: flex;
     justify-content: space-between;
@@ -43,8 +43,6 @@ $font-family: 'Montserrat';
 }
 
 .question-form-ans{
-    // display: flex;
-    // flex-direction: column;
     margin-top: 1rem;
 }
 
@@ -64,10 +62,21 @@ $font-family: 'Montserrat';
 
 .question-form-bottom{
     margin-top: 1rem;
-    padding: 1rem;
+    padding: 0;
     font-size: $font-size1;
     font-family: 'Montserrat', sans-serif;
     display: flex;
     justify-content: space-between;
+}
+.radio-group{
+    width: 50%;
+    padding: 0;
+    padding-right: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.example-margin{
+
 }
 
