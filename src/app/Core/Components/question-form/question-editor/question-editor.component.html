@@ -1,118 +1,3 @@
-
-<!-- <div class="question-container">
-  <mat-vertical-stepper [linear]="isLinear" #stepper>
-    <mat-step label="Step 1" [stepControl]="questionForm" class="step-label">
-      <form [formGroup]="questionForm">
-        <ng-template matStepLabel class="ques-input">Please choose: </ng-template>
-        <div class="type-rank">
-          Question's type:
-          <label>
-            GRAMMAR
-            <input type="radio" value="0" formControlName="type" #type/>
-          </label>
-      
-          <label>
-            VOCABULARY
-            <input type="radio" value="1" formControlName="type" #type/>
-          </label>
-        </div>
-
-        <div class="type-rank">
-          Question's rank:
-          <label>
-            EASY
-            <input type="radio" value="0" formControlName="rank" #rank/>
-          </label>
-      
-          <label>
-            NORMAL
-            <input type="radio" value="1" formControlName="rank" #rank/>
-          </label>
-      
-          <label>
-            HARD
-            <input type="radio" value="2" formControlName="rank" #rank/>
-          </label>
-        </div>
-        <div class="button">
-          <button mat-raised-button color="primary" matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
-    <mat-step label="Step 2" [stepControl]="questionForm" class="step-2">
-      <form [formGroup]="questionForm" (ngSubmit)="onSubmit()" class="question-form">
-        <ng-template matStepLabel class="step-label">Fill out the question</ng-template>
-        <div class="question-form-head">
-          <mat-form-field class="example-full-width">
-            <mat-label class="ques-input">Question</mat-label>
-            <input class="ques-input" matInput type="text" placeholder="Enter your question" formControlName="question">
-          </mat-form-field>
-          <div class="question-form-ans">
-            <div>
-              <mat-form-field class="example-full-width" id="ans-group">
-                <mat-label class="ques-input" >Answer A</mat-label>
-                <input class="ques-input" matInput type="text" placeholder="Enter your answer" formControlName="A">
-              </mat-form-field>
-              <mat-form-field class="example-full-width"  id="ans-group">
-                <mat-label class="ques-input">Answer B</mat-label>
-                <input class="ques-input" matInput type="text" placeholder="Enter your answer" formControlName="B">
-              </mat-form-field>
-            </div>
-            <div>
-              <mat-form-field class="example-full-width"  id="ans-group">
-                <mat-label class="ques-input">Answer C</mat-label>
-                <input class="ques-input" matInput type="text" placeholder="Enter your answer" formControlName="C">
-              </mat-form-field>
-              <mat-form-field class="example-full-width"  id="ans-group">
-                <mat-label class="ques-input">Answer D</mat-label>
-                <input class="ques-input" matInput type="text" placeholder="Enter your answer" formControlName="D">
-              </mat-form-field>
-            </div>
-          </div>
-        </div>
-      
-        <div class="question-form-bottom">
-          Select your right answer:
-          <label>
-            A
-            <input type="radio" value="0" formControlName="correctAnswer" #correctAnswer/>
-          </label>
-      
-          <label>
-            B
-            <input type="radio" value="1" formControlName="correctAnswer" #correctAnswer/>
-          </label>
-      
-          <label>
-            C
-            <input type="radio" value="2" formControlName="correctAnswer" #correctAnswer/>
-          </label>
-      
-          <label>
-            D
-            <input type="radio" value="3" formControlName="correctAnswer" #correctAnswer/>
-          </label>
-        </div>
-
-        <div class="button">
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button mat-raised-button color="primary" matStepperNext>Next</button>
-        </div>
-      </form>
-    </mat-step>
-    <mat-step label="Step 3">
-      <ng-template matStepLabel class="step-label">Add or not?</ng-template>
-      <p class="step-label">Do you want to add this question?</p>
-      <div class="button">
-        <button mat-raised-button matStepperPrevious>Back</button>
-        <button mat-raised-button color="primary" type="submit" [disabled]="!questionForm.valid">Add</button>
-      </div>
-    </mat-step>
-  </mat-vertical-stepper>
-</div> -->
-  <!-- <button type="submit" [disabled]="!questionForm.valid">Submit</button>
-</form> -->
-
 <div class="question-container">
   <h1>Fill in question and answer</h1>
   <div>
@@ -125,44 +10,44 @@
         <div class="question-form-ans">
           <div>
             <mat-form-field class="example-full-width" id="ans-group">
-              <mat-label class="ques-input" >Answer A</mat-label>
+              <mat-label class="ques-input">Answer A</mat-label>
               <input class="ques-input" matInput type="text" placeholder="Enter your answer" formControlName="A">
             </mat-form-field>
-            <mat-form-field class="example-full-width"  id="ans-group">
+            <mat-form-field class="example-full-width" id="ans-group">
               <mat-label class="ques-input">Answer B</mat-label>
               <input class="ques-input" matInput type="text" placeholder="Enter your answer" formControlName="B">
             </mat-form-field>
           </div>
           <div>
-            <mat-form-field class="example-full-width"  id="ans-group">
+            <mat-form-field class="example-full-width" id="ans-group">
               <mat-label class="ques-input">Answer C</mat-label>
               <input class="ques-input" matInput type="text" placeholder="Enter your answer" formControlName="C">
             </mat-form-field>
-            <mat-form-field class="example-full-width"  id="ans-group">
+            <mat-form-field class="example-full-width" id="ans-group">
               <mat-label class="ques-input">Answer D</mat-label>
               <input class="ques-input" matInput type="text" placeholder="Enter your answer" formControlName="D">
             </mat-form-field>
           </div>
         </div>
       </div>
-  
-      <div class="question-form-bottom">
+
+      <!-- <div class="question-form-bottom">
         Select your right answer:
         <label>
           A
           <input type="radio" value="0" formControlName="correctAnswer" #correctAnswer/>
         </label>
-    
+
         <label>
           B
           <input type="radio" value="1" formControlName="correctAnswer" #correctAnswer/>
         </label>
-    
+
         <label>
           C
           <input type="radio" value="2" formControlName="correctAnswer" #correctAnswer/>
         </label>
-    
+
         <label>
           D
           <input type="radio" value="3" formControlName="correctAnswer" #correctAnswer/>
@@ -174,34 +59,74 @@
           GRAMMAR
           <input type="radio" value="0" formControlName="type" #type/>
         </label>
-    
+
         <label>
           VOCABULARY
           <input type="radio" value="1" formControlName="type" #type/>
         </label>
       </div>
-  
+
       <div class="type-rank">
         Question's rank:
         <label>
           EASY
           <input type="radio" value="0" formControlName="rank" #rank/>
         </label>
-    
+
         <label>
           NORMAL
           <input type="radio" value="1" formControlName="rank" #rank/>
         </label>
-    
+
         <label>
           HARD
           <input type="radio" value="2" formControlName="rank" #rank/>
         </label>
-      </div>
-  
+      </div> -->
+
+
+      <section>
+        Select your right answer:
+        <mat-radio-group>
+          <mat-radio-button [color]="'primary'" class="example-margin" ngDefaultControl value="0" formControlName="rank" #rank>EASY</mat-radio-button>
+          <mat-radio-button [color]="'primary'" class="example-margin" ngDefaultControl value="1" formControlName="rank" #rank>NORMAL</mat-radio-button>
+          <mat-radio-button [color]="'primary'" class="example-margin" ngDefaultControl value="2" formControlName="rank" #rank>HARD</mat-radio-button>
+        </mat-radio-group>
+      </section>
+
+      <section>
+        Question's type:
+        <mat-radio-group>
+          <mat-radio-button [color]="'primary'" class="example-margin" ngDefaultControl value="0" formControlName="type" #type>GRAMMAR
+          </mat-radio-button>
+          <mat-radio-button  [color]="'primary'" class="example-margin" ngDefaultControl value="1" ngDefaultControl formControlName="type" #type>VOCABULARY
+          </mat-radio-button>
+        </mat-radio-group>
+      </section>
+
+      <section>
+        Select your right answer:
+        <mat-radio-group>
+          <mat-radio-button [color]="'primary'" class="example-margin" ngDefaultControl value="0" formControlName="correctAnswer" #correctAnswer>A
+          </mat-radio-button>
+          <mat-radio-button [color]="'primary'" class="example-margin" ngDefaultControl value="1" formControlName="correctAnswer" #correctAnswer>B
+          </mat-radio-button>
+          <mat-radio-button  [color]="'primary'" class="example-margin" ngDefaultControl value="2" formControlName="correctAnswer" #correctAnswer>C
+          </mat-radio-button>
+          <mat-radio-button  [color]="'primary'" class="example-margin" ngDefaultControl value="3" formControlName="correctAnswer" #correctAnswer>D
+          </mat-radio-button>
+        </mat-radio-group>
+      </section>
+
+
       <div class="button">
         <button mat-raised-button mat-dialog-close>Cancel</button>
-        <button mat-raised-button color="primary" type="submit" [disabled]="!questionForm.valid">Add</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!questionForm.valid">
+          <span *ngIf="!isLoading">Submit</span>
+          <div class="spinner-border" role="status" *ngIf="isLoading">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </button>
       </div>
     </form>
   </div>

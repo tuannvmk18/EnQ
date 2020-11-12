@@ -8,9 +8,14 @@ import {
   QueryList,
   ElementRef,
   Inject,
+  ChangeDetectorRef,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatCheckbox } from '@angular/material/checkbox';
+import { ThemePalette } from '@angular/material/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatRadioButton } from '@angular/material/radio';
+import { delay } from 'rxjs/operators';
 import { resQuestion } from 'src/app/Core/Interfaces/reqQuestion';
 import { CloudService } from 'src/app/Core/Services/cloud.service';
 
@@ -22,14 +27,22 @@ import { CloudService } from 'src/app/Core/Services/cloud.service';
 })
 export class QuestionEditorComponent implements OnInit, AfterViewInit {
   questionForm: FormGroup;
-  isLinear =false;
+  isLinear = false;
+  isLoading = false;
 
   @Input() data: any;
   @Input() type: string;
-  @ViewChildren('type') typebtn: QueryList<ElementRef>;
-  @ViewChildren('rank') rankbtn: QueryList<ElementRef>;
-  @ViewChildren('correctAnswer') correctAnswer: QueryList<ElementRef>;
-  constructor(private fb: FormBuilder, private cloud: CloudService, @Inject(MAT_DIALOG_DATA) public dataF: any) {
+  @ViewChildren('type') typebtn: QueryList<MatRadioButton>;
+  @ViewChildren('rank') rankbtn: QueryList<MatCheckbox>;
+  @ViewChildren('correctAnswer') correctAnswer: QueryList<MatCheckbox>;
+  // tslint:disable-next-line: max-line-length
+  constructor(
+    private fb: FormBuilder,
+    private cloud: CloudService,
+    @Inject(MAT_DIALOG_DATA) public dataF: any,
+    public dialogRef: MatDialogRef<QuestionEditorComponent>,
+    private changeDetection: ChangeDetectorRef
+  ) {
     if (dataF) {
       this.type = dataF.type;
       this.data = dataF.data;
@@ -39,32 +52,29 @@ export class QuestionEditorComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     if (this.type === 'Edit' && this.data !== undefined) {
       this.typebtn.forEach((x) => {
-        // tslint:disable-next-line: triple-equals
-        if (x.nativeElement.value == this.questionForm.controls.type.value) {
-          x.nativeElement.checked = true;
+        if (x.value === this.questionForm.controls.type.value) {
+          x.checked = true;
         }
       });
 
       this.rankbtn.forEach((x) => {
-        // tslint:disable-next-line: triple-equals
-        if (x.nativeElement.value == this.questionForm.controls.rank.value) {
-          x.nativeElement.checked = true;
+        if (x.value === this.questionForm.controls.rank.value) {
+          x.checked = true;
+        }
+      });
+
+      this.correctAnswer.forEach((x) => {
+        if (
+          Number(x.value) === this.questionForm.controls.correctAnswer.value
+        ) {
+          x.checked = true;
         }
       });
     }
-
-    this.correctAnswer.forEach((x) => {
-      if (
-        // tslint:disable-next-line: triple-equals
-        x.nativeElement.value == this.questionForm.controls.correctAnswer.value
-      ) {
-        x.nativeElement.checked = true;
-      }
-    });
+    this.changeDetection.detectChanges();
   }
 
   ngOnInit(): void {
-    console.log(this.data);
     this.questionForm = this.fb.group({
       type: ['', Validators.compose([Validators.required])],
       rank: ['', Validators.compose([Validators.required])],
@@ -75,7 +85,6 @@ export class QuestionEditorComponent implements OnInit, AfterViewInit {
       D: ['', Validators.compose([Validators.required])],
       correctAnswer: ['', Validators.compose([Validators.required])],
     });
-
     if (this.type === 'Edit') {
       if (this.data === undefined) {
         throw new Error('Data must not empty in Edit mode');
@@ -102,7 +111,7 @@ export class QuestionEditorComponent implements OnInit, AfterViewInit {
     // tslint:disable-next-line: triple-equals
     if (this.type == 'Add') {
       this.postQuestion();
-    // tslint:disable-next-line: triple-equals
+      // tslint:disable-next-line: triple-equals
     } else if (this.type == 'Edit') {
       this.editQuestion();
     }
@@ -137,13 +146,13 @@ export class QuestionEditorComponent implements OnInit, AfterViewInit {
   }
 
   postQuestion(): void {
+    this.isLoading = !this.isLoading;
     this.cloud
       .postQuestion({
         title: this.questionForm.value.question,
         type: this.questionForm.value.type,
         rank: this.questionForm.value.rank,
-        answer:
-        {
+        answer: {
           A: this.questionForm.value.A,
           B: this.questionForm.value.B,
           C: this.questionForm.value.C,
@@ -151,6 +160,7 @@ export class QuestionEditorComponent implements OnInit, AfterViewInit {
           correctAnswer: Number(this.questionForm.value.correctAnswer),
         },
       })
+      .pipe(delay(500))
       .subscribe({
         next: (val) => this.handlePostSuccess(val),
         error: (err) => this.handlePostError(err),
@@ -158,17 +168,22 @@ export class QuestionEditorComponent implements OnInit, AfterViewInit {
   }
 
   handlePostSuccess(val): void {
-    console.log(val);
+    this.isLoading = !this.isLoading;
+    alert('Upload question success');
+    this.dialogRef.close();
   }
 
   handlePostError(err): void {
+    this.isLoading = !this.isLoading;
+    alert('Upload question failed');
+    this.dialogRef.close();
     console.log(err);
   }
 
   deleteQuestion(): void {
     this.cloud.deleteQuestion(this.data.id).subscribe({
       next: () => alert('Delete success'),
-      error: () => alert('Delete error')
+      error: () => alert('Delete error'),
     });
   }
 }

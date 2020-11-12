@@ -1,5 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { CloudService } from '../../Services/cloud.service';
+import {MatTableDataSource} from '@angular/material/table';
+
+
 
 
 export interface PeriodicElement {
@@ -35,10 +38,14 @@ export class LeaderComponent implements OnInit {
   constructor(private cloud: CloudService) {
     this.cloud.getLeaderByDay().subscribe(x => {
       console.log(x);
-    })
+    });
   }
 
   ngOnInit(): void {
   }
 
+
 }
+
+
+
