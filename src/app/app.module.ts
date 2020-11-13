@@ -16,7 +16,7 @@ import { httpInterceptorProviders } from './Core/Interceptors';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
