@@ -1,7 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
         <mat-toolbar>
-            <img src="../../../../assets/logo-noname.svg" alt="logo" width="80px" height="80px" style="margin-top: 1%;">
+            <img src="../../../../assets/logo-noname.svg" alt="logo" width="100px" height="100px">
         </mat-toolbar>
         <mat-nav-list>
             <a mat-list-item routerLink="question">Question</a>
@@ -14,6 +14,7 @@
             <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
             <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
             </button>
+            <span class="example-spacer"></span>
             <button class="signout-btn" mat-button (click)="signOut()">Sign Out</button>
         </mat-toolbar>
         <router-outlet></router-outlet>
