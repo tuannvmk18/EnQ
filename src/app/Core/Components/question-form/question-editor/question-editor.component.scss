@@ -10,6 +10,7 @@ h1{
 .question-container{
     font-family: 'Montserrat', sans-serif;
     text-align: center;
+    overflow: hidden;
 }
 
 .type-rank{
@@ -74,9 +75,5 @@ h1{
     padding-right: 1rem;
     display: flex;
     justify-content: space-between;
-}
-
-.example-margin{
-
 }
 

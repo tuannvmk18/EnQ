@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { LeaderRoutingModule } from './leader-routing.module';
 import { LeaderComponent } from './leader.component';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -10,6 +11,7 @@ import { LeaderComponent } from './leader.component';
   imports: [
     CommonModule,
     LeaderRoutingModule,
+    MatTableModule,
   ],
   exports:[LeaderComponent],
   providers: []
