@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -11,13 +12,12 @@ import { UserService } from '../../Services/user.service';
   styleUrls: ['./user-management.component.scss']
 })
 export class UserManagementComponent implements OnInit, AfterViewInit {
-  users: MatTableDataSource<UserModel> = new MatTableDataSource([]);
-  displayedColumns: string[] = ['id', 'name', 'progress', 'color'];
+  users: MatTableDataSource<UserModel>;
+  displayedColumns: string[] = ['id', 'displayName'];
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private userService: UserService) {
-    this.loadData();
+  constructor(private userService: UserService, private changeDetection: ChangeDetectorRef) {
   }
 
   ngAfterViewInit(): void {
@@ -25,11 +25,14 @@ export class UserManagementComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
+    this.loadData();
   }
 
   loadData(): void {
     this.userService.getAllUser().subscribe((val: any) => {
       this.users = new MatTableDataSource(val.data);
+      console.log(val.data);
+      
       this.users.paginator = this.paginator;
       this.users.sort = this.sort;
     });  

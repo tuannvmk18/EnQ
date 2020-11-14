@@ -16,7 +16,6 @@ import { MatSortModule } from '@angular/material/sort';
     MatPaginatorModule,
     MatSortModule,
     MatTableModule
-  ],
-  exports: [UserManagementComponent]
+  ]
 })
 export class UserManagementModule { }
