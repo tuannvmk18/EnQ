@@ -11,30 +11,42 @@ mat-drawer {
     width: 10%;
 }
 
-a {
+mat-nav-list a {
     text-decoration: none;
-    font-size: 20px;
+    font-size: 25px;
     font-family: 'Montserrat', sans-serif;
     color: #000000;
-    display: block;
-    padding-left: 2vw;
+    padding-left: 0.5vw;
 }
 
-a:hover {
+mat-nav-list a:hover {
     color: white;
     background-color: #db6400;
 }
 
-a:focus {
+mat-nav-list a:focus {
     color: white;
     background-color: #db6400;
 }
 
-ul {
-    padding: 0;
+.example-spacer {
+    flex: 1 1 auto;
 }
 
-ul>li {
-    list-style: none;
-    line-height: 8vh;
+.sidenav-container {
+    height: 100%;
+}
+
+.sidenav {
+    width: 200px;
+}
+
+.sidenav .mat-toolbar {
+    background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }

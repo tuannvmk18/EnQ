@@ -1,21 +1,22 @@
-<app-nav-bar class="nav"></app-nav-bar>
-<mat-drawer-container class="example-container">
-  <mat-drawer mode="side" opened>
-    <div>
-      <ul>
-        <li>
-          <a routerLink="question">Question</a>
-        </li>
-        <li>
-          <a routerLink="leader">Leader</a>
-        </li>
-        <li>
-          <a routerLink="user">User</a>
-        </li>
-      </ul>
-    </div>
-  </mat-drawer>
-  <mat-drawer-content>
-    <router-outlet></router-outlet>
-  </mat-drawer-content>
-</mat-drawer-container>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        <mat-toolbar>
+            <img src="../../../../assets/logo-noname.svg" alt="logo" width="100px" height="100px">
+        </mat-toolbar>
+        <mat-nav-list>
+            <a mat-list-item routerLink="question">Question</a>
+            <a mat-list-item routerLink="leader">Leader</a>
+            <a mat-list-item routerLink="user">User</a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar>
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+            </button>
+            <span class="example-spacer"></span>
+            <button class="signout-btn" mat-button (click)="signOut()">Sign Out</button>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,4 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {Component, OnInit, } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+
 import { CloudService } from '../../Services/cloud.service';
 
 export interface PeriodicElement {
@@ -27,14 +29,14 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./leader.component.scss']
 })
 export class LeaderComponent implements OnInit {
+<<<<<<< HEAD
 
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
 
+=======
+>>>>>>> 514f3951e507ab2dc767c862c99bd5d8e15d9fee
   constructor(private cloud: CloudService) {
-    this.cloud.getLeaderByDay().subscribe(x => {
-      console.log(x);
-    });
   }
 
   ngOnInit(): void {

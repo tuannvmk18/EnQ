@@ -29,7 +29,7 @@ export class QuestionFormComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    console.log(this.paginator);
+
   }
 
   ngOnInit(): void {}

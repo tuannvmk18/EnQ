@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { QuestionEditorComponent } from './question-editor/question-editor.component';
 
 import { QuestionFormComponent } from './question-form.component';
 
@@ -8,7 +9,7 @@ describe('QuestionFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ QuestionFormComponent ]
+      declarations: [ QuestionFormComponent, QuestionEditorComponent ]
     })
     .compileComponents();
   });

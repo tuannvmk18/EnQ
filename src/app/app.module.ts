@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { httpInterceptorProviders } from './Core/Interceptors';
+import { MatTableModule } from '@angular/material/table';
+import { CdkTableModule } from '@angular/cdk/table';
 
 
 @NgModule({
@@ -16,7 +18,7 @@ import { httpInterceptorProviders } from './Core/Interceptors';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule 
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
