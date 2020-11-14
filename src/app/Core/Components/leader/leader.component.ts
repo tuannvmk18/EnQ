@@ -29,13 +29,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./leader.component.scss']
 })
 export class LeaderComponent implements OnInit {
-<<<<<<< HEAD
-
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = ELEMENT_DATA;
-
-=======
->>>>>>> 514f3951e507ab2dc767c862c99bd5d8e15d9fee
   constructor(private cloud: CloudService) {
   }
 
