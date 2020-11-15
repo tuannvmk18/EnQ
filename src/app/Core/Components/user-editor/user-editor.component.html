@@ -1,12 +1,20 @@
-<mat-form-field appearance="fill">
+<form [formGroup]="form">
     <div class="avatar-wraper" *ngIf="data; else default_avatar">
         <img [src]="data.photoURL" class="avatar">
     </div>
-    <mat-label>Moment.js datepicker</mat-label>
-    <input matInput [matDatepicker]="dp" [formControl]="date">
-    <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
-    <mat-datepicker #dp></mat-datepicker>
-</mat-form-field>
+    
+    <mat-form-field appearance="fill">
+        <mat-label>Display Name</mat-label>
+        <input matInput formControlName="displayName">
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill">
+        <mat-label>Time Create</mat-label>
+        <input matInput [matDatepicker]="dp" formControlName="timeCreate">
+        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+        <mat-datepicker #dp></mat-datepicker>
+    </mat-form-field>
+</form>
 
 
 <ng-template #default_avatar>

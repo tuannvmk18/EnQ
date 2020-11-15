@@ -21,8 +21,7 @@ const routes: Routes = [
     },
     {
       path: 'user/:id',
-      // loadChildren: () => import('../../Core/Components/user-editor/user-editor.module').then(m => m.UserEditorModule),
-      component: UserEditorComponent
+      loadChildren: () => import('../../Core/Components/user-editor/user-editor.module').then(m => m.UserEditorModule),
     }
   ], canActivate: [AuthGuard]}];
 

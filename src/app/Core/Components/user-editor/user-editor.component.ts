@@ -25,7 +25,6 @@ interface res {
 export class UserEditorComponent implements OnInit {
   data: UserModel;
   form: FormGroup;
-  date = new FormControl(moment([2017, 0, 1]));
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
@@ -38,7 +37,7 @@ export class UserEditorComponent implements OnInit {
       )
       .subscribe((val: res) => {
         this.data = val.data;
-        console.log(this.data);
+        this.parseData();
       });
 
     this.form = this.fb.group({
@@ -48,10 +47,19 @@ export class UserEditorComponent implements OnInit {
       rank: ['', Validators.compose([Validators.required])],
       _id: ['', Validators.compose([Validators.required])],
       timeCreate: [
-        '',
+        {value: '', disabled: true},
         Validators.compose([Validators.required]),
       ],
     });
+  }
+
+  parseData() {
+    this.form.controls.timeCreate.setValue(moment(this.data.timeCreate));
+    this.form.controls.displayName.setValue(this.data.displayName);
+    this.form.controls.email.setValue(this.data.email);
+    this.form.controls.point.setValue(this.data.point);
+    this.form.controls.rank.setValue(this.data.rank);
+    this.form.controls._id.setValue(this.data._id);
   }
 
   ngOnInit(): void {}

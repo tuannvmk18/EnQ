@@ -9,5 +9,6 @@ export interface UserModel {
     rank: number | 0; //number
     point: number | 0; //number
     testExamHistory?: Array<TestExamHistory>; //Maximum 5
-    friend?: Array<{ _id: string }> // _id of User
+    friend?: Array<{ _id: string }> // _id of User,
+    timeCreate: string
 }
