@@ -1,3 +1,48 @@
-.rowM {
-    padding: 12px;
+.search-form {
+    margin-left: 2.2rem;
+}
+
+.table-form {
+    width: 96.2%;
+    margin-left: 2.2rem;
+}
+
+.table {
+    max-width: 100%;
+}
+
+.paginator {
+    width: 100%;
+}
+
+.title-id,
+.title-name,
+.title-email,
+.title-rank,
+.title-point,
+.title-time {
+    padding-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: black;
+}
+
+.text-id,
+.text-name,
+.text-email,
+.text-rank,
+.text-point,
+.text-time {
+    padding-top: 1.4rem;
+}
+
+.title-id {
+    max-width: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.title-name {
+    max-width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
