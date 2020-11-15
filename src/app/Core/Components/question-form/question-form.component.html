@@ -26,12 +26,12 @@
         <!-- Title Column -->
         <ng-container matColumnDef="Title">
             <th class="text-title" mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
-            <td class="title-title" mat-cell *matCellDef="let row"> {{row.title}} </td>
+            <td class="title-title" mat-cell *matCellDef="let row" class="rowT"> {{row.title}} </td>
         </ng-container>
 
         <ng-container matColumnDef="Action" stickyEnd>
             <th class="text-action" mat-header-cell *matHeaderCellDef>Action</th>
-            <td class="title-action" mat-cell *matCellDef="let element">
+            <td class="title-action" mat-cell *matCellDef="let element" >
                 <button mat-icon-button (click)="openViewQuestion(element)" class="btn-action" color="primary">
           <mat-icon>visibility</mat-icon>
         </button>
