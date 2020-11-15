@@ -1,18 +1,16 @@
 .avatar {
     border-radius: 50%;
     max-width: 150px;
+    margin-bottom: 2rem;
 }
 
 .form {
-    margin: 0 auto;
-    width: 45%;
-    height: 80%;
     border: 1px solid black;
-    text-align: center;
     padding: 2rem;
     border-radius: 2rem;
     border: 1px solid #bbbbbb;
-    box-shadow: 0.3rem 0.2rem #bbbbbb;
+    margin-left: 3%;
+    text-align: center;
 }
 
 .inf-id,
@@ -21,9 +19,53 @@
 .inf-point,
 .inf-rank,
 .inf-time {
-    width: 60%;
+    width: 70%;
 }
 
 .inf-id {
     padding-top: 1rem;
+}
+
+.user-edit {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-inf {
+    width: 40%;
+    margin-top: 2.5rem;
+}
+
+.table-friends {
+    width: 95%;
+    height: 30rem;
+    margin: 1rem 2rem 0 0;
+    border: 1px solid #bbbbbb;
+    border-radius: 1rem;
+}
+
+.fiends-inf {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 2rem 0 0 3rem;
+}
+
+.title-table {
+    font-size: 2rem;
+    color: black;
+    margin: 2rem 0 0 3rem;
+    font-weight: bold;
+}
+
+.fiends-inf>tr>th,
+.fiends-inf>tr>td {
+    width: 20%;
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: left;
+}
+
+.left-table {
+    width: 50%;
 }
