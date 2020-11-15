@@ -1,29 +1,4 @@
 .avatar {
+    width: 75px;
     border-radius: 50%;
-    max-width: 150px;
-}
-
-.form {
-    margin: 0 auto;
-    width: 45%;
-    height: 80%;
-    border: 1px solid black;
-    text-align: center;
-    padding: 2rem;
-    border-radius: 2rem;
-    border: 1px solid #bbbbbb;
-    box-shadow: 0.3rem 0.2rem #bbbbbb;
-}
-
-.inf-id,
-.inf-name,
-.inf-email,
-.inf-point,
-.inf-rank,
-.inf-time {
-    width: 60%;
-}
-
-.inf-id {
-    padding-top: 1rem;
 }
