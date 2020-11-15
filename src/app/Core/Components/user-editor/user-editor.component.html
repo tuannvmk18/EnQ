@@ -1,42 +1,39 @@
-<form [formGroup]="form" class="form" style="margin-top: 2%;">
-    <div class="avatar-wraper" *ngIf="data; else default_avatar">
-        <img [src]="data.photoURL" class="avatar">
-    </div>
-    <div class="form-content">
-        <p>
-            <mat-form-field appearance="fill" class="inf-name">
+<div class="main">
+    <mat-card class="left-side">
+        <div *ngIf="data; else default_avatar" class="avatar-wrapper">
+            <img [src]="data.photoURL" class="avatar">
+        </div>
+        <form [formGroup]="form"> 
+            <mat-form-field appearance="fill" class="full-width">
                 <mat-label>Display Name</mat-label>
-                <input matInput formControlName="displayName">
+                <input matInput formControlName="displayName"/>
             </mat-form-field>
-        </p>
-
-        <p>
-            <mat-form-field appearance="fill" class="inf-email">
+            <mat-form-field appearance="fill" class="full-width">
                 <mat-label>Email</mat-label>
-                <input matInput formControlName="email">
+                <input matInput formControlName="email" />
             </mat-form-field>
+        
+            <div class="inp-wrapper">
+                <mat-form-field appearance="fill" class="width-45">
+                    <mat-label>Point</mat-label>
+                    <input matInput formControlName="point" type="number" />
+                </mat-form-field>
+            
+                <mat-form-field appearance="fill" class="width-45">
+                    <mat-label>Rank</mat-label>
+                    <input matInput formControlName="rank" type="number" />
+                </mat-form-field>
+            </div>
+            <button mat-flat-button color="primary">Sumbit</button>
+        </form>
+        <ng-template #default_avatar>
+            <img src="../../../../../assets/default-avatar.jpg" class="avatar" />
+        </ng-template>
+    </mat-card>
 
-        </p>
+    <div class="right-side">
+        <div class="frined-list">
 
-        <p>
-            <mat-form-field appearance="fill" class="inf-point">
-                <mat-label>Point</mat-label>
-                <input matInput formControlName="point" type="number">
-            </mat-form-field>
-        </p>
-
-        <p>
-            <mat-form-field appearance="fill" class="inf-rank">
-                <mat-label>Rank</mat-label>
-                <input matInput formControlName="rank" type="number">
-            </mat-form-field>
-
-        </p>
+        </div>
     </div>
-
-</form>
-
-
-<ng-template #default_avatar>
-    <img src="../../../../../assets/default-avatar.jpg" class="avatar">
-</ng-template>
+</div>
