@@ -37,6 +37,7 @@ export class UserEditorComponent implements OnInit {
       )
       .subscribe((val: res) => {
         this.data = val.data;
+        console.log(this.data);
         this.parseData();
       });
 
@@ -45,7 +46,9 @@ export class UserEditorComponent implements OnInit {
       email: ['', Validators.compose([Validators.required])],
       point: ['', Validators.compose([Validators.required])],
       rank: ['', Validators.compose([Validators.required])],
-      _id: ['', Validators.compose([Validators.required])],
+      _id: [
+        {value: '', disabled: true}, 
+        Validators.compose([Validators.required])],
       timeCreate: [
         {value: '', disabled: true},
         Validators.compose([Validators.required]),
