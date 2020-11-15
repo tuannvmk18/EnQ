@@ -18,18 +18,18 @@
 
         <!-- ID Column -->
         <ng-container matColumnDef="ID">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+            <th class="text-id" mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
             <td class="title-id" mat-cell *matCellDef="let row"> {{row._id}} </td>
         </ng-container>
 
         <!-- Title Column -->
         <ng-container matColumnDef="Title">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+            <th class="text-title" mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
             <td class="title-title" mat-cell *matCellDef="let row"> {{row.title}} </td>
         </ng-container>
 
         <ng-container matColumnDef="Action" stickyEnd>
-            <th mat-header-cell *matHeaderCellDef style="padding-left: 0.5%;">Action</th>
+            <th class="text-action" mat-header-cell *matHeaderCellDef>Action</th>
             <td class="title-action" mat-cell *matCellDef="let element">
                 <button mat-icon-button (click)="openViewQuestion(element)" class="btn-action" color="primary">
           <mat-icon>visibility</mat-icon>

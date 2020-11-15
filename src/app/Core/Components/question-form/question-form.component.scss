@@ -3,7 +3,8 @@
 }
 
 .form {
-    width: 100%;
+    width: 96.2%;
+    margin-left: 2.2rem;
 }
 
 .table {
@@ -28,9 +29,16 @@
     text-overflow: ellipsis;
 }
 
-th {
+.text-id,
+.text-title,
+.text-action {
+    padding-bottom: 1.5rem;
     color: black;
     font-size: 1.75rem;
+}
+
+.text-action {
+    padding-left: 0.5%
 }
 
 .top-search {
