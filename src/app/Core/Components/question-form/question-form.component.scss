@@ -72,3 +72,9 @@
     display: flex;
     justify-content: space-between;
 }
+
+.title {
+    text-overflow: ellipsis;
+    max-width: 100px;
+    overflow: hidden;
+}

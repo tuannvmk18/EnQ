@@ -1,0 +1,42 @@
+<form [formGroup]="form">
+    <div class="avatar-wraper" *ngIf="data; else default_avatar">
+        <img [src]="data.photoURL" class="avatar">
+    </div>
+    
+    <mat-form-field appearance="fill">
+        <mat-label>ID</mat-label>
+        <input matInput formControlName="_id">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Display Name</mat-label>
+        <input matInput formControlName="displayName">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Point</mat-label>
+        <input matInput formControlName="point" type="number">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Rank</mat-label>
+        <input matInput formControlName="rank" type="number">
+    </mat-form-field>
+    
+    <mat-form-field appearance="fill">
+        <mat-label>Time Create</mat-label>
+        <input matInput [matDatepicker]="dp" formControlName="timeCreate">
+        <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+        <mat-datepicker #dp></mat-datepicker>
+    </mat-form-field>
+</form>
+
+
+<ng-template #default_avatar>
+    <img src="../../../../../assets/default-avatar.jpg" class="avatar">
+</ng-template>
