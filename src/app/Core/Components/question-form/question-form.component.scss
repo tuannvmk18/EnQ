@@ -3,7 +3,46 @@
 }
 
 .form {
-    width: 100%;
+    width: 96.2%;
+    margin-left: 2.2rem;
+}
+
+.table {
+    max-width: 100%;
+}
+
+.title-id {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.title-title {
+    max-width: 350px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.title-action {
+    max-width: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.text-id,
+.text-title,
+.text-action {
+    padding-bottom: 1.5rem;
+    color: black;
+    font-size: 1.75rem;
+}
+
+.text-action {
+    padding-left: 0.5%
+}
+
+.top-search {
+    margin-left: 2.2rem;
 }
 
 .top-table {
@@ -11,11 +50,21 @@
     justify-content: space-between;
 }
 
-.bnt-top {
+.bnt-add {
+    outline: none;
+    margin: 1rem 2rem 0 0;
+}
+
+.bnt-reload {
+    margin: 1rem 3rem 0 0;
     outline: none;
 }
 
-li {
+.bnt-action {
+    outline: none;
+}
+
+.bnt-tool li {
     list-style: none;
 }
 
@@ -23,7 +72,6 @@ li {
     display: flex;
     justify-content: space-between;
 }
-
 
 .title {
     text-overflow: ellipsis;
