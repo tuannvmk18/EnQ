@@ -6,11 +6,6 @@
     width: 100%;
 }
 
-th {
-    color: black;
-    font-size: 1.75rem;
-}
-
 .top-table {
     display: flex;
     justify-content: space-between;
@@ -27,4 +22,11 @@ li {
 .bnt-tool ul {
     display: flex;
     justify-content: space-between;
+}
+
+
+.title {
+    text-overflow: ellipsis;
+    max-width: 100px;
+    overflow: hidden;
 }

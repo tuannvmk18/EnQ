@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LeaderComponent } from 'src/app/Core/Components/leader/leader.component';
 import { QuestionFormComponent } from 'src/app/Core/Components/question-form/question-form.component';
-import { UserEditorComponent } from 'src/app/Core/Components/user-management/user-editor/user-editor.component';
-import { UserManagementComponent } from 'src/app/Core/Components/user-management/user-management.component';
+import { UserEditorComponent } from 'src/app/Core/Components/user-editor/user-editor.component';
 import { AuthGuard } from 'src/app/Core/Guard/auth.guard';
 import { DashboardComponent } from './dashboard.component';
 
@@ -21,7 +19,11 @@ const routes: Routes = [
       path: 'user',
       loadChildren: () => import('src/app/Core/Components/user-management/user-management.module').then(m => m.UserManagementModule)
     },
-    {path: 'user/:id', component: UserEditorComponent}
+    {
+      path: 'user/:id',
+      // loadChildren: () => import('../../Core/Components/user-editor/user-editor.module').then(m => m.UserEditorModule),
+      component: UserEditorComponent
+    }
   ], canActivate: [AuthGuard]}];
 
 @NgModule({

@@ -1,8 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatTableModule } from '@angular/material/table';
-import { UserEditorComponent } from './user-editor/user-editor.component';
-
 import { UserManagementComponent } from './user-management.component';
 
 describe('UserManagementComponent', () => {
