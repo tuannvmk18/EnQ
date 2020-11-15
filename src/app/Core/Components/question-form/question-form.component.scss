@@ -6,7 +6,29 @@
     width: 100%;
 }
 
-.table-title th {
+.table {
+    max-width: 100%;
+}
+
+.title-id {
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.title-title {
+    max-width: 350px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.title-action {
+    max-width: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+th {
     color: black;
     font-size: 1.75rem;
 }
