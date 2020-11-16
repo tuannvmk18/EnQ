@@ -1,14 +1,5 @@
-.paginator {
-    max-width: 100%;
-}
-
-.form {
-    width: 100%;
-}
-
-th {
-    color: black;
-    font-size: 1.75rem;
+.top-search {
+    margin-left: 2.2rem;
 }
 
 .top-table {
@@ -16,11 +7,21 @@ th {
     justify-content: space-between;
 }
 
-.bnt-top {
+.bnt-add {
+    outline: none;
+    margin: 1rem 2rem 0 0;
+}
+
+.bnt-reload {
+    margin: 1rem 3rem 0 0;
     outline: none;
 }
 
-li {
+.bnt-action {
+    outline: none;
+}
+
+.bnt-tool li {
     list-style: none;
 }
 
@@ -28,3 +29,15 @@ li {
     display: flex;
     justify-content: space-between;
 }
+
+.rowT {
+    text-overflow: ellipsis;
+    max-width: 400px;
+    overflow: hidden;
+}
+
+// .title {
+//     text-overflow: ellipsis;
+//     max-width: 100px;
+//     overflow: hidden;
+// }

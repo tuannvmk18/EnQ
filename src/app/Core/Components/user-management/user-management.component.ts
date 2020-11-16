@@ -3,6 +3,7 @@ import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { Route, Router } from '@angular/router';
 import { UserModel } from '../../Interfaces/userModel';
 import { UserService } from '../../Services/user.service';
 
@@ -13,11 +14,12 @@ import { UserService } from '../../Services/user.service';
 })
 export class UserManagementComponent implements OnInit, AfterViewInit {
   users: MatTableDataSource<UserModel>;
-  displayedColumns: string[] = ['id', 'displayName'];
+  displayedColumns: string[] = ['id', 'displayName', 'email', 'rank', 'point', 'timeCreate', 'Action'];
+  dataLength: number;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private userService: UserService, private changeDetection: ChangeDetectorRef) {
+  constructor(private userService: UserService, private changeDetection: ChangeDetectorRef, private router: Router) {
   }
 
   ngAfterViewInit(): void {
@@ -31,10 +33,13 @@ export class UserManagementComponent implements OnInit, AfterViewInit {
   loadData(): void {
     this.userService.getAllUser().subscribe((val: any) => {
       this.users = new MatTableDataSource(val.data);
-      console.log(val.data);
-      
       this.users.paginator = this.paginator;
       this.users.sort = this.sort;
+
+      this.dataLength = val.data.length;
+      this.changeDetection.detectChanges();
+
+      console.log(val);
     });  
   }
 
@@ -45,6 +50,10 @@ export class UserManagementComponent implements OnInit, AfterViewInit {
     if (this.users.paginator) {
       this.users.paginator.firstPage();
     }
+  }
+
+  editUser(id: string) {
+    this.router.navigateByUrl(`dashboard/user/${id}`);
   }
 }
 
