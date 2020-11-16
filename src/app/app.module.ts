@@ -12,7 +12,7 @@ import { CdkTableModule } from '@angular/cdk/table';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

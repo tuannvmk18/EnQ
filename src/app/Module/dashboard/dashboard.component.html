@@ -1,22 +1,52 @@
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-        <mat-toolbar>
-            <img src="../../../../assets/logo-noname.svg" alt="logo" width="100px" height="100px">
-        </mat-toolbar>
-        <mat-nav-list>
-            <a mat-list-item routerLink="question">Question</a>
-            <a mat-list-item routerLink="leader">Leader</a>
-            <a mat-list-item routerLink="user">User</a>
+    <mat-sidenav #drawer class="sidenav" mode="side" opened >
+        <div class="back-logo"><img src="../../../../assets/logo-noname-1.svg" alt="logo" class="logo"></div>
+        <mat-nav-list #drawer>
+            <ul>
+                <li class="back">
+                        <a mat-list-item routerLink="question" class="back-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#3f51b5" width="5.5rem" height="5.5rem">
+                                <path d="M0 0h24v24H0V0z" fill="none"/>
+                                <path d="M15 4v7H5.17l-.59.59-.58.58V4h11m1-2H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm5 4h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1z"/>
+                            </svg>
+                        </a>
+                        <span>Questions</span>
+                </li>
+                <li class="back">
+                    <a mat-list-item routerLink="leader" class="back-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" viewBox="0 0 24 24" fill="white" width="5.5rem" height="5.5rem">
+                            <rect fill="none" height="30" width="30"/>
+                            <g><path d="M7.5,21H2V9h5.5V21z M14.75,3h-5.5v18h5.5V3z M22,11h-5.5v10H22V11z"/></g>
+                        </svg>
+                    </a>
+                    <span>Leader</span>
+                </li>
+                <li class="back">
+                    <a mat-list-item routerLink="user" class="back-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="5.5rem" height="5.5rem">
+                            <path d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M9 11.75c-.69 0-1.25.56-1.25 1.25s.56 1.25 1.25 1.25 1.25-.56 1.25-1.25-.56-1.25-1.25-1.25zm6 0c-.69 0-1.25.56-1.25 1.25s.56 1.25 1.25 1.25 1.25-.56 1.25-1.25-.56-1.25-1.25-1.25zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-.29.02-.58.05-.86 2.36-1.05 4.23-2.98 5.21-5.37C11.07 8.33 14.05 10 17.42 10c.78 0 1.53-.09 2.25-.26.21.71.33 1.47.33 2.26 0 4.41-3.59 8-8 8z"/>
+                        </svg>
+                    </a>
+                    <span>Users</span>
+                </li>
+                <li class="log-out">
+                    <button mat-button (click)="signOut()">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#333333" width="3rem" height="3rem">
+                            <path d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M13 3h-2v10h2V3zm4.83 2.17l-1.42 1.42C17.99 7.86 19 9.81 19 12c0 3.87-3.13 7-7 7s-7-3.13-7-7c0-2.19 1.01-4.14 2.58-5.42L6.17 5.17C4.23 6.82 3 9.26 3 12c0 4.97 4.03 9 9 9s9-4.03 9-9c0-2.74-1.23-5.18-3.17-6.83z"/>
+                        </svg>
+                        Log out
+                    </button>
+                </li>
+            </ul>
+            
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-        <mat-toolbar>
-            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
-            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-            </button>
-            <span class="example-spacer"></span>
-            <button class="signout-btn" mat-button (click)="signOut()">Sign Out</button>
-        </mat-toolbar>
+        <div>
+            <h1>DASHBOARD</h1>
+        </div>
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

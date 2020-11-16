@@ -1,52 +1,101 @@
-.nav {
-    height: 75px;
-}
+$purple: #3f51b5;
+$light-purple: #F3F3F3;
+$dark-gray: #333333;
 
-.example-container {
+.sidenav-container{
     width: 100%;
-    height: calc(100vh - 70px);
+    height: 100vh;
 }
 
-mat-drawer {
-    width: 10%;
+.mat-drawer-inner-container{
+    overflow: hidden;
 }
 
-mat-nav-list a {
-    text-decoration: none;
-    font-size: 25px;
-    font-family: 'Montserrat', sans-serif;
-    color: #000000;
-    padding-left: 0.5vw;
-}
-
-mat-nav-list a:hover {
-    color: white;
-    background-color: #db6400;
-}
-
-mat-nav-list a:focus {
-    color: white;
-    background-color: #db6400;
-}
-
-.example-spacer {
-    flex: 1 1 auto;
-}
-
-.sidenav-container {
+.sidenav{
+    position: relative;
+    width: 17rem;
     height: 100%;
+	float: left;
+	text-align: center;
+	transition: all 0.3s ease-in-out;
+    border: 1px solid silver;
+    overflow: hidden;
+    
+    ul{
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .back{
+            width: 16.5rem;
+            height: 17rem;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+            border: none;
+    
+            // .back-2{
+            //     width: 9rem;
+            //     height: 9rem;
+            //     margin: 0 3.9rem 0 3.9rem;
+            //     display: inline-flex;
+            //     flex-direction: column;
+            //     justify-content: center;
+            //     text-align: center;
+            //     cursor: pointer;
+    
+            a{
+                width: 7rem;
+                height: 7rem;
+                border-radius: 2rem;
+                background-color: $light-purple;
+                margin-left: 4.5rem;
+                padding: .5rem;
+                    
+                
+                svg{
+                    fill: $purple;
+                }
+    
+                &:focus{
+                    background-color: $purple;
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                        
+                   svg{
+                        fill: white;
+                    }
+                }
+                    
+            }
+                
+            span{
+                padding-top: 1rem;
+                margin: 0;
+                font-size: 1.75rem;
+                font-weight: bold;
+                font-family: 'Montserrat', sans-serif;
+                color: $dark-gray;
+            }
+        }
+        .log-out{
+            margin-top: 35%;
+
+            button{
+                font-size: 1.75rem;
+                font-weight: bold;
+                font-family: 'Montserrat', sans-serif;
+                color: $dark-gray;
+            }
+            
+        }
+    }
 }
 
-.sidenav {
-    width: 200px;
-}
-
-.sidenav .mat-toolbar {
-    background: inherit;
-}
-
-.mat-toolbar.mat-primary {
-    position: sticky;
-    top: 0;
-    z-index: 1;
+mat-sidenav-content{
+    background-color: $light-purple;
 }
