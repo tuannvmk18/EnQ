@@ -1,39 +1,42 @@
 <div class="main">
-    <mat-card class="left-side">
-        <div *ngIf="data; else default_avatar" class="avatar-wrapper">
-            <img [src]="data.photoURL" class="avatar">
-        </div>
-        <form [formGroup]="form"> 
-            <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Display Name</mat-label>
-                <input matInput formControlName="displayName"/>
-            </mat-form-field>
-            <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Email</mat-label>
-                <input matInput formControlName="email" />
-            </mat-form-field>
-        
-            <div class="inp-wrapper">
-                <mat-form-field appearance="fill" class="width-45">
-                    <mat-label>Point</mat-label>
-                    <input matInput formControlName="point" type="number" />
-                </mat-form-field>
-            
-                <mat-form-field appearance="fill" class="width-45">
-                    <mat-label>Rank</mat-label>
-                    <input matInput formControlName="rank" type="number" />
-                </mat-form-field>
-            </div>
-            <button mat-flat-button color="primary">Sumbit</button>
-        </form>
-        <ng-template #default_avatar>
-            <img src="../../../../../assets/default-avatar.jpg" class="avatar" />
-        </ng-template>
-    </mat-card>
-
-    <div class="right-side">
-        <div class="frined-list">
-
-        </div>
+  <mat-card class="left-side">
+    <div *ngIf="data; else default_avatar" class="avatar-wrapper">
+      <img [src]="data.photoURL" class="avatar">
     </div>
+
+    <ng-template #default_avatar>
+      <div class="avatar-wrapper">
+        <img src="../../../../../assets/default-avatar.jpg" class="avatar" />
+      </div>
+    </ng-template>
+    <form [formGroup]="form">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Display Name</mat-label>
+        <input matInput formControlName="displayName" />
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" />
+      </mat-form-field>
+
+      <div class="inp-wrapper">
+        <mat-form-field appearance="fill" class="width-45">
+          <mat-label>Point</mat-label>
+          <input matInput formControlName="point" type="number" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="width-45">
+          <mat-label>Rank</mat-label>
+          <input matInput formControlName="rank" type="number" />
+        </mat-form-field>
+      </div>
+      <button mat-flat-button color="primary">Sumbit</button>
+    </form>
+  </mat-card>
+
+  <div class="right-side">
+    <div class="frined-list">
+
+    </div>
+  </div>
 </div>

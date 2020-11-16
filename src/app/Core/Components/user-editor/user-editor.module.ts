@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { UserEditorRoutingModule } from './user-editor-routing.module';
 import { UserEditorComponent } from './user-editor.component';
 import {MatCardModule} from '@angular/material/card';
+import {MatListModule} from '@angular/material/list';
 @NgModule({
     declarations: [UserEditorComponent],
     imports: [
@@ -21,7 +22,8 @@ import {MatCardModule} from '@angular/material/card';
         MatFormFieldModule,
         MatInputModule,
         MatButtonModule,
-        MatCardModule
+        MatCardModule,
+        MatListModule
     ],
     exports: [UserEditorComponent]
 })
