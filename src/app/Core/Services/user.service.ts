@@ -16,4 +16,8 @@ export class UserService {
   getAllUser() {
     return this.http.get(API + 'users');
   }
+
+  deleteUser(id: string) {
+    return this.http.delete(API + `users/${id}`);
+  }
 }
