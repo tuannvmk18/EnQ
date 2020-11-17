@@ -20,4 +20,10 @@ export class UserService {
   deleteUser(id: string) {
     return this.http.delete(API + `users/${id}`);
   }
+
+  editUser(id: string, payload) {
+    return this.http.patch(API + `users/${id}`, {
+      ...payload
+    });
+  }
 }

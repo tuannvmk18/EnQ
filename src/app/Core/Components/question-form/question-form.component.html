@@ -17,17 +17,29 @@
 <div class="mat-elevation-z8 form">
     <table mat-table [dataSource]="data" matSort class="table">
 
-        <!-- ID Column -->
+        <!-- ID Column
         <ng-container matColumnDef="ID">
             <th class="text-id" mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
             <td class="title-id" mat-cell *matCellDef="let row"> {{row._id}} </td>
-        </ng-container>
+        </ng-container> -->
 
         <!-- Title Column -->
         <ng-container matColumnDef="Title">
             <th class="text-title" mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
             <td class="title-title" mat-cell *matCellDef="let row" class="rowT"> {{row.title}} </td>
         </ng-container>
+
+        <!-- Type Column -->
+        <ng-container matColumnDef="Type">
+            <th class="text-id" mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+            <td class="title-id" mat-cell *matCellDef="let row"> {{row.type | TypeQuestionPipe}} </td>
+        </ng-container>
+
+        <!-- Rank Column -->
+        <ng-container matColumnDef="Rank">
+          <th class="text-id" mat-header-cell *matHeaderCellDef mat-sort-header> Rank </th>
+          <td class="title-id" mat-cell *matCellDef="let row"> {{row.rank | RankQuestionPipe}} </td>
+      </ng-container>
 
         <ng-container matColumnDef="Action" stickyEnd>
             <th class="text-action" mat-header-cell *matHeaderCellDef>Action</th>

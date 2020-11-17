@@ -3,13 +3,12 @@
     <div *ngIf="data; else default_avatar" class="avatar-wrapper">
       <img [src]="data.photoURL" class="avatar">
     </div>
-
     <ng-template #default_avatar>
       <div class="avatar-wrapper">
         <img src="../../../../../assets/default-avatar.jpg" class="avatar" />
       </div>
     </ng-template>
-    <form [formGroup]="form">
+    <form [formGroup]="form" (ngSubmit)="editUser()">
       <mat-form-field appearance="fill" class="full-width">
         <mat-label>Display Name</mat-label>
         <input matInput formControlName="displayName" />
@@ -30,13 +29,11 @@
           <input matInput formControlName="rank" type="number" />
         </mat-form-field>
       </div>
-      <button mat-flat-button color="primary">Sumbit</button>
+      <button mat-flat-button color="primary" type="submit">Sumbit</button>
     </form>
   </mat-card>
 
   <div class="right-side">
-    <div class="frined-list">
 
-    </div>
   </div>
 </div>
