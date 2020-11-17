@@ -1,6 +1,6 @@
 .main {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 
     .left-side {
         max-width: 500px;
@@ -29,4 +29,12 @@
 .inp-wrapper {
     display: flex;
     justify-content: space-between;
+}
+
+.friendListTable {
+  display: block;
+  width: 400px;
+  height: 400px;
+  margin: 20px;
+  border-style: groove;
 }

@@ -4,6 +4,7 @@ import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-mo
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { ActivatedRoute } from '@angular/router';
 import * as moment from 'moment';
+import { from } from 'rxjs';
 import { concatAll, map } from 'rxjs/operators';
 import { UserModel } from 'src/app/Core/Interfaces/userModel';
 import { UserService } from 'src/app/Core/Services/user.service';
@@ -15,7 +16,9 @@ interface res {
 }
 
 interface friend {
-  _id: string
+  _id: string,
+  displayName: string,
+  photoUrl: string
 }
 @Component({
   selector: 'app-user-editor',
@@ -41,6 +44,7 @@ export class UserEditorComponent implements OnInit {
       )
       .subscribe((val: res) => {
         this.data = val.data;
+        this.loadFriend(val.data);
         console.log(this.data);
         this.parseData();
       });
@@ -85,5 +89,18 @@ export class UserEditorComponent implements OnInit {
     this.userService.editUser(_id, payload).subscribe({
       next: x => console.log(x),
     });
+  }
+
+  loadFriend(data: UserModel) {
+    if(data.friend) {
+      from(data.friend).pipe(map(x => this.userService.getUserByID(x._id)), concatAll()).subscribe((x: UserModel) => {
+        const friend: friend = {
+          displayName: x.displayName,
+          _id: x._id,
+          photoUrl: x.photoURL
+        };
+        this.friendList.push(friend);
+      });
+    }
   }
 }

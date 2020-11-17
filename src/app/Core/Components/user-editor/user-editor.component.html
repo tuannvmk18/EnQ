@@ -34,6 +34,19 @@
   </mat-card>
 
   <div class="right-side">
-
+    <div class="friendListTable">
+      <mat-selection-list *ngIf="friendList; else friendListEmpty" #friend>
+        <mat-list-option *ngFor="let friend of friendList">
+          <img [src]="friend.photoUrl">
+          {{friend.displayName}}
+        </mat-list-option>
+      </mat-selection-list>
+      <ng-template #friendListEmpty>
+        <h3>No friend to show here</h3>
+      </ng-template>
+    </div>
   </div>
 </div>
+
+
+
