@@ -35,6 +35,7 @@
 
   <div class="right_side">
     <mat-card class="friendListTable">
+      <mat-card-title class="title-card">FriendList</mat-card-title>
       <mat-selection-list *ngIf="friendList; else friendListEmpty" #friend>
         <mat-list-option *ngFor="let friend of friendList">
           <img [src]="friend.photoUrl">
@@ -47,6 +48,7 @@
     </mat-card>
 
     <mat-card class="testExamHistory">
+      <mat-card-title class="title-card">Test Exam History</mat-card-title>
       <table mat-table [dataSource]="testExamHistory">
         <ng-container matColumnDef="timeStart">
           <th mat-header-cell *matHeaderCellDef mat-sort-header class="trow"> TimeStart </th>
