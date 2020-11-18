@@ -33,8 +33,8 @@
     </form>
   </mat-card>
 
-  <div class="right-side">
-    <div class="friendListTable">
+  <div class="right_side">
+    <mat-card class="friendListTable">
       <mat-selection-list *ngIf="friendList; else friendListEmpty" #friend>
         <mat-list-option *ngFor="let friend of friendList">
           <img [src]="friend.photoUrl">
@@ -44,7 +44,32 @@
       <ng-template #friendListEmpty>
         <h3>No friend to show here</h3>
       </ng-template>
-    </div>
+    </mat-card>
+
+    <mat-card class="testExamHistory">
+      <table mat-table [dataSource]="testExamHistory">
+        <ng-container matColumnDef="timeStart">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> TimeStart </th>
+          <td mat-cell *matCellDef="let element"> {{element.timeStart}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="timeEnd">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> TimeStart </th>
+          <td mat-cell *matCellDef="let element"> {{element.timeEnd}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="star" stickyEnd>
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element">
+            <mat-icon>more_vert</mat-icon>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card>
+
   </div>
 </div>
 

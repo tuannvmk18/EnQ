@@ -1,3 +1,5 @@
+import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -23,7 +25,9 @@ import {MatListModule} from '@angular/material/list';
         MatInputModule,
         MatButtonModule,
         MatCardModule,
-        MatListModule
+        MatListModule,
+        MatTableModule,
+        MatIconModule
     ],
     exports: [UserEditorComponent]
 })

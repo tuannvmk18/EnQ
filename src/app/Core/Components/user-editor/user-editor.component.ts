@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_MOMENT_DATE_FORMATS, MomentDateAdapter } from '@angular/material-moment-adapter';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
@@ -8,6 +9,7 @@ import { from } from 'rxjs';
 import { concatAll, map } from 'rxjs/operators';
 import { UserModel } from 'src/app/Core/Interfaces/userModel';
 import { UserService } from 'src/app/Core/Services/user.service';
+import { MatSort } from '@angular/material/sort';
 
 interface res {
   data: UserModel;
@@ -31,7 +33,12 @@ interface friend {
 export class UserEditorComponent implements OnInit {
   data: UserModel;
   form: FormGroup;
+  testExamHistory: MatTableDataSource<any>;
   friendList: friend[];
+  displayedColumns: string[] = ['timeStart', 'timeEnd', 'star']
+
+  @ViewChild(MatSort) sort: MatSort;
+
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
@@ -45,7 +52,9 @@ export class UserEditorComponent implements OnInit {
       .subscribe((val: res) => {
         this.data = val.data;
         this.loadFriend(val.data);
-        console.log(this.data);
+        this.testExamHistory = new MatTableDataSource(val.data.testExamHistory);
+        this.testExamHistory.sort = this.sort;
+        console.log(this.testExamHistory.data);
         this.parseData();
       });
 
@@ -67,7 +76,7 @@ export class UserEditorComponent implements OnInit {
   ngOnInit(): void { }
 
   parseData() {
-    this.form.controls.timeCreate.setValue(moment(this.data.timeCreate));
+    this.form.controls.timeCreate.setValue(this.data.timeCreate);
     this.form.controls.displayName.setValue(this.data.displayName);
     this.form.controls.email.setValue(this.data.email);
     this.form.controls.point.setValue(this.data.point);
