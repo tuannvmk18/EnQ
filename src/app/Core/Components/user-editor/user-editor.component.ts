@@ -10,6 +10,7 @@ import { concatAll, map } from 'rxjs/operators';
 import { UserModel } from 'src/app/Core/Interfaces/userModel';
 import { UserService } from 'src/app/Core/Services/user.service';
 import { MatSort } from '@angular/material/sort';
+import { MatDialog } from '@angular/material/dialog';
 
 interface res {
   data: UserModel;
@@ -42,7 +43,8 @@ export class UserEditorComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private dialog: MatDialog
   ) {
     this.route.paramMap
       .pipe(
@@ -111,5 +113,9 @@ export class UserEditorComponent implements OnInit {
         this.friendList.push(friend);
       });
     }
+  }
+
+  openTestExamHistoryDetails() {
+
   }
 }

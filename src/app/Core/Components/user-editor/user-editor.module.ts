@@ -12,6 +12,7 @@ import { UserEditorRoutingModule } from './user-editor-routing.module';
 import { UserEditorComponent } from './user-editor.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
+import { MatDialogModule } from '@angular/material/dialog';
 @NgModule({
     declarations: [UserEditorComponent],
     imports: [
@@ -27,7 +28,8 @@ import {MatListModule} from '@angular/material/list';
         MatCardModule,
         MatListModule,
         MatTableModule,
-        MatIconModule
+        MatIconModule,
+        MatDialogModule
     ],
     exports: [UserEditorComponent]
 })
