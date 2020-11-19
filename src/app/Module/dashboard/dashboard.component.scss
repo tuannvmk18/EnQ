@@ -18,7 +18,7 @@ $dark-gray: #333333;
 	float: left;
 	text-align: center;
 	transition: all 0.3s ease-in-out;
-    border: 1px solid silver;
+    // border: 1px solid silver;
     overflow: hidden;
     
     ul{
@@ -38,17 +38,7 @@ $dark-gray: #333333;
             padding: 0;
             margin: 0;
             border: none;
-    
-            // .back-2{
-            //     width: 9rem;
-            //     height: 9rem;
-            //     margin: 0 3.9rem 0 3.9rem;
-            //     display: inline-flex;
-            //     flex-direction: column;
-            //     justify-content: center;
-            //     text-align: center;
-            //     cursor: pointer;
-    
+
             a{
                 width: 7rem;
                 height: 7rem;
@@ -98,12 +88,19 @@ $dark-gray: #333333;
 
 mat-sidenav-content{
     background-color: $light-purple;
-// .mat-toolbar.mat-primary {
-//     position: sticky;
-//     top: 0;
-//     z-index: 1;
-// }
 
-// .signout-btn {
-//     outline: none;
+    div{
+        padding-top: 2rem;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+
+        h1{
+            font-size: 3.5rem;
+            font-weight: bold;
+            font-family: 'Montserrat', sans-serif;
+            color: $dark-gray;
+            margin: 0;
+        }
+    }
 }
