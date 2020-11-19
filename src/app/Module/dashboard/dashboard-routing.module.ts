@@ -8,11 +8,11 @@ import { DashboardComponent } from './dashboard.component';
 const routes: Routes = [
   {path: '', component: DashboardComponent, children: [
     {
-      path: 'question', 
+      path: 'question',
       component: QuestionFormComponent
     },
     {
-      path: 'leader', 
+      path: 'leader',
       loadChildren: () => import('../../Core/Components/leader/leader.module').then(m => m.LeaderModule)
     },
     {

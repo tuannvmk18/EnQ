@@ -1,93 +1,72 @@
 $dark-gray: #333333;
-
 // .top-search {
 //     margin-left: 2.2rem;
 // }
-
 // .top-table {
 //     display: flex;
 //     justify-content: space-between;
 // }
-
 // .bnt-add {
 //     outline: none;
 //     margin: 1rem 2rem 0 0;
 // }
-
 // .bnt-reload {
 //     margin: 1rem 3rem 0 0;
 //     outline: none;
 // }
-
 // .bnt-action {
 //     outline: none;
 // }
-
 // .bnt-tool li {
 //     list-style: none;
 // }
-
 // .bnt-tool ul {
 //     display: flex;
 //     justify-content: flex-end;
 // }
-
 // .rowT {
 //     text-overflow: ellipsis;
 //     max-width: 400px;
 //     overflow: hidden;
 // }
-
 // .title {
 //     text-overflow: ellipsis;
 //     max-width: 100px;
 //     overflow: hidden;
 // }
-
-
-.question-form-content{
+.question-form-content {
     overflow: hidden;
     // display: flex;
     // flex-direction: row;
-
-    .top-table{
+    .top-table {
         // width: 40%;
         margin-top: 2rem;
         display: flex;
         justify-content: space-between;
-
         .top-search {
             margin-left: 2.2rem;
         }
-
-        .bnt-tool{
-
+        .bnt-tool {
             ul {
                 display: flex;
                 justify-content: flex-end;
-
-                li{
+                li {
                     list-style: none;
-
                     .bnt-add {
                         outline: none;
                         margin: 1rem 2rem 0 0;
                     }
-                    
                     .bnt-reload {
                         margin: 1rem 3rem 0 0;
                         outline: none;
                     }
                 }
-            } 
+            }
         }
     }
-
-    .right-content{
-
-    //     width: 100%;
-
-        .mat-elevation-z8{
+    .right-content {
+        //     width: 100%;
+        .mat-elevation-z8 {
             margin-left: 1.5rem;
             margin-right: 1.5rem;
             padding: 2rem;
@@ -95,47 +74,37 @@ $dark-gray: #333333;
             border-radius: 2rem;
             margin-bottom: 1.2rem;
             background-color: white;
-
-            .table-border{
-                border-style:solid; 
-                border-color:black; 
+            .table-border {
+                border-style: solid;
+                border-color: black;
                 border-width: thin;
-
-                .table{
+                .table {
                     // border-style: solid;
                     // border-color: $dark-gray;
                     padding: 0;
                     font-family: 'Montserrat', sans-serif;
                     margin: 0;
-            
-                    th{
+                    th {
                         font-size: 1.75rem;
                         font-weight: bold;
                         color: $dark-gray;
                         padding: 1rem;
                     }
-            
-                    td{
-            
+                    td {
                         .rowT {
                             text-overflow: ellipsis;
                             max-width: 400px;
                             overflow: hidden;
                         }
-            
                         .bnt-action {
                             outline: none;
                         }
                     }
                 }
-    
-                .paginator{
+                .paginator {
                     margin-top: 0;
                 }
             }
-        }    
+        }
     }
 }
-
-
-
