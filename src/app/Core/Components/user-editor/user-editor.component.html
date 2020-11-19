@@ -1,39 +1,79 @@
 <div class="main">
-    <mat-card class="left-side">
-        <div *ngIf="data; else default_avatar" class="avatar-wrapper">
-            <img [src]="data.photoURL" class="avatar">
-        </div>
-        <form [formGroup]="form"> 
-            <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Display Name</mat-label>
-                <input matInput formControlName="displayName"/>
-            </mat-form-field>
-            <mat-form-field appearance="fill" class="full-width">
-                <mat-label>Email</mat-label>
-                <input matInput formControlName="email" />
-            </mat-form-field>
-        
-            <div class="inp-wrapper">
-                <mat-form-field appearance="fill" class="width-45">
-                    <mat-label>Point</mat-label>
-                    <input matInput formControlName="point" type="number" />
-                </mat-form-field>
-            
-                <mat-form-field appearance="fill" class="width-45">
-                    <mat-label>Rank</mat-label>
-                    <input matInput formControlName="rank" type="number" />
-                </mat-form-field>
-            </div>
-            <button mat-flat-button color="primary">Sumbit</button>
-        </form>
-        <ng-template #default_avatar>
-            <img src="../../../../../assets/default-avatar.jpg" class="avatar" />
-        </ng-template>
+  <mat-card class="left-side">
+    <div *ngIf="data; else default_avatar" class="avatar-wrapper">
+      <img [src]="data.photoURL" class="avatar">
+    </div>
+    <ng-template #default_avatar>
+      <div class="avatar-wrapper">
+        <img src="../../../../../assets/default-avatar.jpg" class="avatar" />
+      </div>
+    </ng-template>
+    <form [formGroup]="form" (ngSubmit)="editUser()">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Display Name</mat-label>
+        <input matInput formControlName="displayName" />
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" />
+      </mat-form-field>
+
+      <div class="inp-wrapper">
+        <mat-form-field appearance="fill" class="width-45">
+          <mat-label>Point</mat-label>
+          <input matInput formControlName="point" type="number" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="width-45">
+          <mat-label>Rank</mat-label>
+          <input matInput formControlName="rank" type="number" />
+        </mat-form-field>
+      </div>
+      <button mat-flat-button color="primary" type="submit">Sumbit</button>
+    </form>
+  </mat-card>
+
+  <div class="right_side">
+    <mat-card class="friendListTable">
+      <mat-card-title class="title-card">FriendList</mat-card-title>
+      <mat-selection-list *ngIf="friendList; else friendListEmpty" #friend>
+        <mat-list-option *ngFor="let friend of friendList">
+          <img [src]="friend.photoUrl">
+          {{friend.displayName}}
+        </mat-list-option>
+      </mat-selection-list>
+      <ng-template #friendListEmpty>
+        <h3>No friend to show here</h3>
+      </ng-template>
     </mat-card>
 
-    <div class="right-side">
-        <div class="frined-list">
+    <mat-card class="testExamHistory">
+      <mat-card-title class="title-card">Test Exam History</mat-card-title>
+      <table mat-table [dataSource]="testExamHistory">
+        <ng-container matColumnDef="timeStart">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="trow"> TimeStart </th>
+          <td mat-cell *matCellDef="let element"> {{element.timeStart}} </td>
+        </ng-container>
 
-        </div>
-    </div>
+        <ng-container matColumnDef="timeEnd">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header class="trow"> TimeStart </th>
+          <td mat-cell *matCellDef="let element"> {{element.timeEnd}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="star" stickyEnd>
+          <th mat-header-cell *matHeaderCellDef></th>
+          <td mat-cell *matCellDef="let element">
+            <mat-icon>visibility</mat-icon>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card>
+
+  </div>
 </div>
+
+
+

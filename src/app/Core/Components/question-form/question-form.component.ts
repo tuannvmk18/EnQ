@@ -15,7 +15,7 @@ import { QuestionViewComponent } from './question-view/question-view.component';
 })
 export class QuestionFormComponent implements OnInit, AfterViewInit {
   data: MatTableDataSource<any> = null;
-  displayedColumns: string[] = ['ID', 'Title', 'Action'];
+  displayedColumns: string[] = ['Title', 'Type' , 'Rank' ,'Action'];
   dataLength: number;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -37,7 +37,7 @@ export class QuestionFormComponent implements OnInit, AfterViewInit {
   applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.data.filter = filterValue.trim().toLowerCase();
-
+    console.log(filterValue);
     if (this.data.paginator) {
       this.data.paginator.firstPage();
     }

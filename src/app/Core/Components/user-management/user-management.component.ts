@@ -23,7 +23,7 @@ export class UserManagementComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    
+
   }
 
   ngOnInit(): void {
@@ -40,7 +40,7 @@ export class UserManagementComponent implements OnInit, AfterViewInit {
       this.changeDetection.detectChanges();
 
       console.log(val);
-    });  
+    });
   }
 
   applyFilter(event: Event) {
@@ -54,6 +54,12 @@ export class UserManagementComponent implements OnInit, AfterViewInit {
 
   editUser(id: string) {
     this.router.navigateByUrl(`dashboard/user/${id}`);
+  }
+
+  deleteUser(id: string) {
+    this.userService.deleteUser(id).subscribe({
+      next: (message) => console.log(message)
+    });
   }
 }
 

@@ -17,10 +17,12 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
+import { TypeQuestionPipe } from '../../Pipe/type-question.pipe';
+import { RankQuestionPipe } from '../../Pipe/rank-question.pipe';
 
 
 @NgModule({
-  declarations: [QuestionFormComponent, QuestionEditorComponent, QuestionViewComponent],
+  declarations: [QuestionFormComponent, QuestionEditorComponent, QuestionViewComponent, TypeQuestionPipe, RankQuestionPipe],
   imports: [
     CommonModule,
     ReactiveFormsModule,
