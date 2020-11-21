@@ -1,48 +1,41 @@
-.search-form {
-    margin-left: 2.2rem;
-}
-
-.table-form {
-    width: 96.2%;
-    margin-left: 2.2rem;
-}
-
-.table {
-    max-width: 100%;
-}
-
-.paginator {
-    width: 100%;
-}
-
-.title-id,
-.title-name,
-.title-email,
-.title-rank,
-.title-point,
-.title-time {
-    padding-bottom: 1.5rem;
-    font-size: 1.5rem;
-    color: black;
-}
-
-.text-id,
-.text-name,
-.text-email,
-.text-rank,
-.text-point,
-.text-time {
-    padding-top: 1.4rem;
-}
-
-.title-id {
-    max-width: 10px;
+$dark-gray: #333333;
+.user-container {
+    background-color: #FFFFFF;
+    height: 100%;
     overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.title-name {
-    max-width: 100px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    .search-form {
+        margin: 3.5rem 0 0 2rem;
+        width: 97%;
+    }
+    .table-form {
+        margin: 0 auto;
+        width: 97%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 0.2rem;
+        margin-top: 1.8rem;
+        .table {
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            th {
+                font-size: 1.7rem;
+                font-weight: bold;
+                color: $dark-gray;
+                padding-bottom: 1.5rem;
+            }
+            td {
+                .bnt-action {
+                    outline: none;
+                }
+            }
+            .text-id,
+            .text-name,
+            .text-email,
+            .text-rank,
+            .text-point,
+            .text-time {
+                padding-top: 1.2rem;
+            }
+        }
+    }
 }
