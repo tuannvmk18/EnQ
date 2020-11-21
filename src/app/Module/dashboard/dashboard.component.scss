@@ -1,33 +1,30 @@
 $purple: #3f51b5;
 $light-purple: #F3F3F3;
 $dark-gray: #333333;
-
-.sidenav-container{
+.sidenav-container {
     width: 100%;
     height: 100vh;
 }
 
-.mat-drawer-inner-container{
+.mat-drawer-inner-container {
     overflow: hidden;
 }
 
-.sidenav{
-    position: relative;
+.sidenav {
+    // position: relative;
     width: 17rem;
     height: 100%;
-	float: left;
-	text-align: center;
-	transition: all 0.3s ease-in-out;
+    float: left;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
     // border: 1px solid silver;
     overflow: hidden;
-    
-    ul{
+    ul {
         padding: 0;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-
-        .back{
+        .back {
             width: 16.5rem;
             height: 17rem;
             display: inline-flex;
@@ -38,41 +35,32 @@ $dark-gray: #333333;
             padding: 0;
             margin: 0;
             border: none;
-
-            a{
+            a {
                 width: 7rem;
                 height: 7rem;
                 border-radius: 2rem;
                 background-color: $light-purple;
                 margin-left: 4.5rem;
                 padding: .5rem;
-                    
-                
-                svg{
+                svg {
                     fill: $purple;
                 }
-
-                &:hover{
+                &:hover {
                     background-color: $purple;
                     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-                        
-                   svg{
+                    svg {
                         fill: white;
                     }
                 }
-    
-                &:focus{
+                &:focus {
                     background-color: $purple;
                     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-                        
-                   svg{
+                    svg {
                         fill: white;
                     }
                 }
-                    
             }
-                
-            span{
+            span {
                 padding-top: 1rem;
                 margin: 0;
                 font-size: 1.75rem;
@@ -81,30 +69,26 @@ $dark-gray: #333333;
                 color: $dark-gray;
             }
         }
-        .log-out{
+        .log-out {
             margin-top: 35%;
-
-            button{
+            button {
                 font-size: 1.75rem;
                 font-weight: bold;
                 font-family: 'Montserrat', sans-serif;
                 color: $dark-gray;
             }
-            
         }
     }
 }
 
-mat-sidenav-content{
+mat-sidenav-content {
     background-color: $light-purple;
-
-    div{
+    div {
         padding-top: 2rem;
         text-align: center;
         display: flex;
         justify-content: center;
-
-        h1{
+        h1 {
             font-size: 3.5rem;
             font-weight: bold;
             font-family: 'Montserrat', sans-serif;
@@ -112,4 +96,10 @@ mat-sidenav-content{
             margin: 0;
         }
     }
+}
+
+.btn-hamb {
+    outline: none;
+    width: 6rem;
+    height: 6rem;
 }
