@@ -31,7 +31,7 @@
                     <p>
                         <ng-container matColumnDef="Title">
                             <th class="text-title" mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
-                            <td class="title-title" mat-cell *matCellDef="let row" class="rowT"> {{row.title}} </td>
+                            <td class="rowT" mat-cell *matCellDef="let row"> {{row.title}} </td>
                         </ng-container>
                     </p>
 
@@ -51,16 +51,15 @@
                     <ng-container matColumnDef="Action" stickyEnd>
                         <th class="text-action" mat-header-cell *matHeaderCellDef>Action</th>
                         <td class="title-action" mat-cell *matCellDef="let element">
-                            <button mat-icon-button (click)="openViewQuestion(element)" class="btn-action" color="primary">
-                      <mat-icon>visibility</mat-icon>
-                    </button>
-                            <button mat-icon-button (click)="editQuestion(element)" class="btn-action" style="color: #0e918c;">
-                      <mat-icon>create</mat-icon>
-                    </button>
-                            <button mat-icon-button (click)="deleteQuestion(element._id)" class="btn-action" color="warn">
-                      <mat-icon>delete</mat-icon>
-                    </button>
-
+                            <button mat-icon-button (click)="openViewQuestion(element)" class="btn-action" style="color:#33956a;">
+                                <mat-icon>visibility</mat-icon>
+                            </button>
+                            <button mat-icon-button (click)="editQuestion(element)" class="btn-action" style="color: #3b8fb4;">
+                                <mat-icon mat-icon>create</mat-icon>
+                            </button>
+                            <button mat-icon-button (click)="deleteQuestion(element._id)" class="btn-action" style="color:#df4c33">
+                                <mat-icon>delete</mat-icon>
+                            </button>
                         </td>
                     </ng-container>
 

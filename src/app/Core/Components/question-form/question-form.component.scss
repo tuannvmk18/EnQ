@@ -1,5 +1,7 @@
 $dark-gray: #333333;
 .question-form-content {
+    background-color: #FFFFFF;
+    height: 100%;
     overflow: hidden;
     // display: flex;
     // flex-direction: row;
@@ -9,7 +11,7 @@ $dark-gray: #333333;
         display: flex;
         justify-content: space-between;
         .top-search {
-            margin-left: 2.2rem;
+            margin-left: 1.5rem;
         }
         .bnt-tool {
             ul {
@@ -22,7 +24,7 @@ $dark-gray: #333333;
                         margin: 1rem 2rem 0 0;
                     }
                     .bnt-reload {
-                        margin: 1rem 3rem 0 0;
+                        margin: 1rem 1.8rem 0 0;
                         outline: none;
                     }
                 }
@@ -30,22 +32,14 @@ $dark-gray: #333333;
         }
     }
     .right-content {
-        //     width: 100%;
         .mat-elevation-z8 {
             margin-left: 1.5rem;
             margin-right: 1.5rem;
-            padding: 2rem;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            border-radius: 2rem;
+            border-radius: 0.2rem;
             margin-bottom: 1.2rem;
-            background-color: white;
             .table-border {
-                border-style: solid;
-                border-color: black;
-                border-width: thin;
                 .table {
-                    // border-style: solid;
-                    // border-color: $dark-gray;
                     padding: 0;
                     font-family: 'Montserrat', sans-serif;
                     margin: 0;
@@ -53,7 +47,7 @@ $dark-gray: #333333;
                         font-size: 1.75rem;
                         font-weight: bold;
                         color: $dark-gray;
-                        padding: 1rem;
+                        padding-bottom: 1.5rem;
                     }
                     td {
                         .rowT {
@@ -61,13 +55,20 @@ $dark-gray: #333333;
                             max-width: 400px;
                             overflow: hidden;
                         }
-                        .bnt-action {
+                        .btn-action {
+                            border: none;
                             outline: none;
                         }
+                    }
+                    .rowT,
+                    .title-type,
+                    .title-rank {
+                        padding-top: 1.1rem;
                     }
                 }
                 .paginator {
                     margin-top: 0;
+                    outline: none;
                 }
             }
         }
