@@ -37,7 +37,7 @@ export class QuestionFormComponent implements OnInit, AfterViewInit {
   applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value;
     this.data.filter = filterValue.trim().toLowerCase();
-    console.log(filterValue);
+
     if (this.data.paginator) {
       this.data.paginator.firstPage();
     }
