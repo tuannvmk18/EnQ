@@ -1,12 +1,9 @@
 $dark-gray: #333333;
 .question-form-content {
     background-color: #FFFFFF;
-    height: 100%;
     overflow: hidden;
-    // display: flex;
-    // flex-direction: row;
+    width: 100%;
     .top-table {
-        // width: 40%;
         margin-top: 3.5rem;
         display: flex;
         justify-content: space-between;
