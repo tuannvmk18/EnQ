@@ -1,6 +1,8 @@
 <mat-sidenav-container class="sidenav-container">
     <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-        <div class="back-logo"><img src="../../../../assets/logo-noname-1.svg" alt="logo" class="logo"></div>
+        <div class="back-logo">
+            <img src="../../../../assets/logo-noname-1.svg" alt="logo" class="logo">
+        </div>
         <mat-nav-list>
             <ul>
                 <li class="back">
