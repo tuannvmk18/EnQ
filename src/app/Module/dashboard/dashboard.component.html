@@ -1,16 +1,16 @@
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #drawer class="sidenav" mode="side" opened >
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
         <div class="back-logo"><img src="../../../../assets/logo-noname-1.svg" alt="logo" class="logo"></div>
-        <mat-nav-list #drawer>
+        <mat-nav-list>
             <ul>
                 <li class="back">
-                        <a mat-list-item routerLink="question" class="back-2">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#3f51b5" width="5.5rem" height="5.5rem">
+                    <a mat-list-item routerLink="question" class="back-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#3f51b5" width="5.5rem" height="5.5rem">
                                 <path d="M0 0h24v24H0V0z" fill="none"/>
                                 <path d="M15 4v7H5.17l-.59.59-.58.58V4h11m1-2H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm5 4h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1z"/>
                             </svg>
-                        </a>
-                        <span>Questions</span>
+                    </a>
+                    <span>Questions</span>
                 </li>
                 <li class="back">
                     <a mat-list-item routerLink="leader" class="back-2">
@@ -40,10 +40,14 @@
                     </button>
                 </li>
             </ul>
-            
+
         </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async" class="btn-hamb">
+            <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+         </button>
+
         <!-- <div>
             <h1>DASHBOARD</h1>
         </div> -->
