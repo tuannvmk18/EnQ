@@ -37,7 +37,7 @@
 
             <ng-container matColumnDef="timeCreate">
                 <th class="title-time" mat-header-cell *matHeaderCellDef>Time Create</th>
-                <td class="text-time" mat-cell *matCellDef="let element">{{element.timeCreate}}</td>
+                <td class="text-time" mat-cell *matCellDef="let element">{{element.timeCreate | date: 'short'}}</td>
             </ng-container>
 
             <ng-container matColumnDef="Action" stickyEnd>
