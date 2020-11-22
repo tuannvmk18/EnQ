@@ -57,12 +57,12 @@
             <table mat-table [dataSource]="testExamHistory">
                 <ng-container matColumnDef="timeStart">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header class="trow"> TimeStart </th>
-                    <td mat-cell *matCellDef="let element"> {{element.timeStart}} </td>
+                    <td mat-cell *matCellDef="let element"> {{element.timeStart * 1000 | date: 'short'}} </td>
                 </ng-container>
 
                 <ng-container matColumnDef="timeEnd">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header class="trow"> TimeStart </th>
-                    <td mat-cell *matCellDef="let element"> {{element.timeEnd}} </td>
+                    <td mat-cell *matCellDef="let element" class="trow"> {{element.timeEnd * 1000 | date: 'short'}} </td>
                 </ng-container>
 
                 <ng-container matColumnDef="star" stickyEnd>
