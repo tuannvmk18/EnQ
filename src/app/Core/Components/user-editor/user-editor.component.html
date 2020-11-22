@@ -51,18 +51,18 @@
             </ng-template>
         </mat-card>
     </div>
-    <div>
+    <div class="right_side-next">
         <mat-card class="testExamHistory">
             <mat-card-title class="title-card">Test Exam History</mat-card-title>
             <table mat-table [dataSource]="testExamHistory">
                 <ng-container matColumnDef="timeStart">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header class="trow"> TimeStart </th>
-                    <td mat-cell *matCellDef="let element"> {{element.timeStart * 1000 | date: 'short'}} </td>
+                    <td mat-cell *matCellDef="let element"> {{element.timeStart}} </td>
                 </ng-container>
 
                 <ng-container matColumnDef="timeEnd">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header class="trow"> TimeStart </th>
-                    <td mat-cell *matCellDef="let element"> {{element.timeEnd * 1000 | date: 'short'}} </td>
+                    <td mat-cell *matCellDef="let element"> {{element.timeEnd}} </td>
                 </ng-container>
 
                 <ng-container matColumnDef="star" stickyEnd>

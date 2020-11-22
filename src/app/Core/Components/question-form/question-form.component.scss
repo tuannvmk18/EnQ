@@ -2,13 +2,13 @@ $dark-gray: #333333;
 .question-form-content {
     background-color: #FFFFFF;
     overflow: hidden;
+    width: 100%;
     .top-table {
         margin-top: 3.5rem;
         display: flex;
         justify-content: space-between;
         .top-search {
             margin-left: 1.5rem;
-            width: 30rem;
         }
         .bnt-tool {
             ul {
