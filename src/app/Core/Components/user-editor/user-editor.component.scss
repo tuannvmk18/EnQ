@@ -32,12 +32,18 @@
         margin: 20px;
     }
     .testExamHistory {
-        width: 33rem;
+        width: 45rem;
         height: 38rem;
         margin: 20px;
     }
     .trow {
-        width: 100px;
+        width: 20rem;
+        color: black;
+    }
+    .drow {
+        text-overflow: ellipsis;
+        max-width: -150px;
+        overflow: hidden;
     }
     .title-card {
         text-align: center;
@@ -48,11 +54,21 @@
             outline: none;
         }
     }
+    .table-history {
+        width: 100%;
+    }
+    .text {
+        text-align: center;
+        margin-top: 50%;
+    }
 }
 
 @media screen and (max-width: 1024px) {
     .main {
         display: flex;
         flex-direction: column;
+        .testExamHistory {
+            width: 33rem;
+        }
     }
 }
