@@ -57,18 +57,18 @@
             <table mat-table [dataSource]="testExamHistory" class="table-history">
                 <ng-container matColumnDef="timeStart">
                     <th mat-header-cell *matHeaderCellDef mat-sort-header class="trow"> Time Start </th>
-                    <td mat-cell *matCellDef="let element"> {{element.timeStart * 1000 | date: 'short'}} </td>
+                    <td mat-cell *matCellDef="let element"> {{element.timeStart | date}} </td>
                 </ng-container>
 
-                <ng-container matColumnDef="timeEnd">
-                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="trow"> Time End </th>
-                    <td mat-cell *matCellDef="let element"> {{element.timeEnd * 1000 | date: 'short'}} </td>
+                <ng-container matColumnDef="Point">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="trow"> Point </th>
+                    <td mat-cell *matCellDef="let element"> {{element.point}} </td>
                 </ng-container>
 
                 <ng-container matColumnDef="star" stickyEnd>
                     <th mat-header-cell *matHeaderCellDef></th>
-                    <td mat-cell *matCellDef="let element">
-                        <mat-icon>visibility</mat-icon>
+                    <td mat-cell *matCellDef="let element; let i = index">
+                        <mat-icon class="curson-pointer" (click)="openTestExamHistoryDetails(element)">visibility</mat-icon>
                     </td>
                 </ng-container>
 

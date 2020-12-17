@@ -13,8 +13,10 @@ import { UserEditorComponent } from './user-editor.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatListModule} from '@angular/material/list';
 import { MatDialogModule } from '@angular/material/dialog';
+import { TextExamsViewComponent } from './text-exams-view/text-exams-view.component';
+import { AnswerQuestionPipe } from '../../Pipe/answer-question.pipe';
 @NgModule({
-    declarations: [UserEditorComponent],
+    declarations: [UserEditorComponent, TextExamsViewComponent, AnswerQuestionPipe],
     imports: [
         CommonModule,
         UserEditorRoutingModule,
