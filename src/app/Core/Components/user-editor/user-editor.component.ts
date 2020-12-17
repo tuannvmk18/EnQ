@@ -1,3 +1,5 @@
+import { TextExamsViewComponent } from './text-exams-view/text-exams-view.component';
+import { TestExamHistory } from './../../Interfaces/TestExamHistory';
 import { MatTableDataSource } from '@angular/material/table';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -11,6 +13,7 @@ import { UserModel } from 'src/app/Core/Interfaces/userModel';
 import { UserService } from 'src/app/Core/Services/user.service';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog } from '@angular/material/dialog';
+
 
 interface res {
   data: UserModel;
@@ -36,7 +39,7 @@ export class UserEditorComponent implements OnInit {
   form: FormGroup;
   testExamHistory: MatTableDataSource<any>;
   friendList: friend[];
-  displayedColumns: string[] = ['timeStart', 'timeEnd', 'star']
+  displayedColumns: string[] = ['timeStart', 'Point', 'star']
 
   @ViewChild(MatSort) sort: MatSort;
 
@@ -115,7 +118,11 @@ export class UserEditorComponent implements OnInit {
     }
   }
 
-  openTestExamHistoryDetails() {
-
+  openTestExamHistoryDetails(dataF) {
+    this.dialog.open(TextExamsViewComponent, {
+      data: {
+        dataF
+      }
+    });
   }
 }

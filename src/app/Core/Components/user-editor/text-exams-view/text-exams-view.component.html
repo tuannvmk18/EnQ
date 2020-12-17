@@ -1,0 +1,25 @@
+<ng-container *ngIf="data != null">
+  <div class="container">
+    <div *ngFor="let q of data.testExam.questions; let i = index">
+      <mat-card>
+        <mat-card-title>{{i+1}}: {{q.title}}</mat-card-title>
+        <mat-card-content class="mat-typography">
+          <div>
+            A: {{q.answer.A}}
+          </div>
+          <div>
+            B: {{q.answer.B}}
+          </div>
+          <div>
+            C: {{q.answer.C}}
+          </div>
+          <div>
+            D: {{q.answer.D}}
+          </div>
+          <p>Right Answer: {{q.answer.correctAnswer | AnswerQuestionPipe}}</p>
+          <p>User choosed: {{data.answers[i] | AnswerQuestionPipe}}</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</ng-container>
