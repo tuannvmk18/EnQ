@@ -13,9 +13,7 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient, private router: Router) {
     this.getTokenFromLocalStorage();
-    if(this.token != null) {
-      this.getAdminUserInfo(this.token).subscribe();
-    }
+    this.getUserFromLocalStorage();
   }
 
   public signOut(): void {
@@ -72,7 +70,7 @@ export class AuthService {
             throw new Error('Failed to get user');
           }
           this.user = payload.data;
-          // localStorage.setItem('user', JSON.stringify(payload.data));
+          localStorage.setItem('user', JSON.stringify(payload.data));
         })
       );
   }
