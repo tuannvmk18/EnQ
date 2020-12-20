@@ -107,3 +107,101 @@ mat-sidenav-content {
     width: 6rem;
     height: 6rem;
 }
+
+@media only screen and (max-width: 900px) {
+    .sidenav {
+        background-color: #FBFBFC;
+        // position: relative;
+        width: 17rem;
+        height: 100vh;
+        float: left;
+        text-align: center;
+        transition: all 0.3s ease-in-out;
+        // border: 1px solid silver;
+        overflow: hidden;
+        ul {
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .back {
+                width: 15rem;
+                height: 10rem;
+                display: inline-flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                cursor: pointer;
+                padding: 0;
+                margin: 0;
+                border: none;
+                a {
+                    width: 6rem;
+                    height: 6rem;
+                    border-radius: 2rem;
+                    background-color: $light-purple;
+                    margin-left: 4.5rem;
+                    padding: .2rem;
+                    svg {
+                        fill: $purple;
+                    }
+                    &:hover {
+                        background-color: $purple;
+                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                        svg {
+                            fill: white;
+                        }
+                    }
+                    &:focus {
+                        background-color: $purple;
+                        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                        svg {
+                            fill: white;
+                        }
+                    }
+                }
+                span {
+                    padding-top: 1rem;
+                    margin: 0;
+                    font-size: 1.2rem;
+                    font-weight: bold;
+                    font-family: 'Montserrat', sans-serif;
+                    color: $dark-gray;
+                    text-align: center;
+                }
+            }
+            .log-out {
+                margin-top: 28%;
+                button {
+                    font-size: 1.75rem;
+                    font-weight: bold;
+                    font-family: 'Montserrat', sans-serif;
+                    color: $dark-gray;
+                    outline: none;
+                    text-align: center;
+                }
+            }
+        }
+    }
+    mat-sidenav-content {
+        background-color: $light-purple;
+        div {
+            padding-top: 2rem;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            h1 {
+                font-size: 3.5rem;
+                font-weight: bold;
+                font-family: 'Montserrat', sans-serif;
+                color: $dark-gray;
+                margin: 0;
+            }
+        }
+    }
+    .btn-hamb {
+        outline: none;
+        width: 6rem;
+        height: 6rem;
+    }
+}
