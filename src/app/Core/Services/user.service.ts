@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { API } from 'src/environments/environment';
+import { API } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
