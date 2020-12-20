@@ -72,7 +72,7 @@ export class AuthService {
             throw new Error('Failed to get user');
           }
           this.user = payload.data;
-          localStorage.setItem('user', JSON.stringify(payload.data));
+          // localStorage.setItem('user', JSON.stringify(payload.data));
         })
       );
   }
