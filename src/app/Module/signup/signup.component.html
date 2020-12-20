@@ -1,34 +1,37 @@
 <div class="page-content">
-  <div class="container-form" id="container">
-    <div class="form-container sign-in-container">
-      <form class="form-content">
-        <h2>Create Account With EnQ</h2>
-        <div class="form-control">
-          <input type="text" class="form-input" placeholder="Username" formControlName="userName" required autocomplete="off">
+    <div class="container-form" id="container">
+        <div class="form-container sign-in-container">
+            <form class="form-content">
+                <h2>Create Account With EnQ</h2>
+                <div class="form-control">
+                    <input type="text" class="form-input" placeholder="Username" formControlName="userName" required autocomplete="off">
+                </div>
+                <div class="form-control">
+                    <input type="email" class="form-input" placeholder="Email" formControlName="email" required autocomplete="off">
+                </div>
+                <div class="form-control">
+                    <input type="password" class="form-input" placeholder="Password" formControlName="password">
+                </div>
+                <div class="form-control">
+                    <input type="password" class="form-input" placeholder="Confirm Password" formControlName="password">
+                </div>
+                <button type="submit">Sign Up</button>
+                <p>If you have an account.
+                    <a routerLink="/login" class="router_login">back to login</a>
+                </p>
+            </form>
         </div>
-        <div class="form-control">
-          <input type="email" class="form-input" placeholder="Email" formControlName="email" required autocomplete="off">
+
+        <!-----------   overlay   -------------->
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-right">
+                    <img class="image" src="../../../assets/login.svg">
+                    <p class="quote">Improve your English with EnQ</p>
+                </div>
+
+            </div>
+
         </div>
-        <div class="form-control">
-          <input type="password" class="form-input" placeholder="Password" formControlName="password">
-        </div>
-        <div class="form-control">
-          <input type="password" class="form-input" placeholder="Confirm Password" formControlName="password">
-        </div>
-        <button type="submit">Sign Up</button>
-      </form>
     </div>
-
-    <!-----------   overlay   -------------->
-    <div class="overlay-container">
-      <div class="overlay">
-        <div class="overlay-panel overlay-right">
-          <img class="image" src="../../../assets/login.svg">
-          <p class="quote">Improve your English with EnQ</p>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
 </div>

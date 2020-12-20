@@ -1,30 +1,30 @@
 <div class="page-content">
-  <div class="container-form" id="container">
-    <div class="form-container sign-in-container">
-      <form class="form-content" [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
-        <img class="logo" src="../../../assets/logo-noname.svg">
-        <h2>Welcome to EnQ</h2>
-        <div class="form-control">
-          <input type="text" class="form-input" placeholder="Email" formControlName="userName" required autocomplete="off" >
+    <div class="container-form" id="container">
+        <div class="form-container sign-in-container">
+            <form class="form-content" [formGroup]="LoginForm" (ngSubmit)="onSubmit()">
+                <img class="logo" src="../../../assets/logo-noname.svg">
+                <h2>Welcome to EnQ</h2>
+                <div class="form-control">
+                    <input type="text" class="form-input" placeholder="Email" formControlName="userName" required autocomplete="off">
+                </div>
+                <div class="form-control">
+                    <input type="password" class="form-input" placeholder="Password" formControlName="password">
+                </div>
+                <button type="submit" [disabled]="!LoginForm.valid" class="btn_login">Login</button>
+                <p class="title-sign-up">Have an account? <a routerLink="/signup" class="route_signup">SignUp here</a> </p>
+            </form>
         </div>
-        <div class="form-control">
-          <input type="password" class="form-input" placeholder="Password" formControlName="password">
+
+        <!-----------   overlay   -------------->
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-right">
+                    <img class="image" src="../../../assets/login.svg">
+                    <p class="quote">Improve your English with EnQ</p>
+                </div>
+
+            </div>
+
         </div>
-        <button type="submit" [disabled]="!LoginForm.valid">Login</button>
-        <p class="title-sign-up">Have an account? <a routerLink="/signup">SignUp here</a> </p>
-      </form>
     </div>
-
-    <!-----------   overlay   -------------->
-    <div class="overlay-container">
-      <div class="overlay">
-        <div class="overlay-panel overlay-right">
-          <img class="image" src="../../../assets/login.svg">
-          <p class="quote">Improve your English with EnQ</p>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
 </div>

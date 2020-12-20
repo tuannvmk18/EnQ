@@ -26,8 +26,8 @@ $dark-gray: #333333;
         flex-direction: column;
         justify-content: space-between;
         .back {
-            width: 16.5rem;
-            height: 17rem;
+            width: 15rem;
+            height: 15rem;
             display: inline-flex;
             flex-direction: column;
             justify-content: center;
@@ -37,12 +37,12 @@ $dark-gray: #333333;
             margin: 0;
             border: none;
             a {
-                width: 7rem;
-                height: 7rem;
+                width: 6rem;
+                height: 6rem;
                 border-radius: 2rem;
                 background-color: $light-purple;
                 margin-left: 4.5rem;
-                padding: .5rem;
+                padding: .2rem;
                 svg {
                     fill: $purple;
                 }
@@ -64,19 +64,22 @@ $dark-gray: #333333;
             span {
                 padding-top: 1rem;
                 margin: 0;
-                font-size: 1.75rem;
+                font-size: 1.5rem;
                 font-weight: bold;
                 font-family: 'Montserrat', sans-serif;
                 color: $dark-gray;
+                text-align: center;
             }
         }
         .log-out {
-            margin-top: 32%;
+            margin-top: 35%;
             button {
                 font-size: 1.75rem;
                 font-weight: bold;
                 font-family: 'Montserrat', sans-serif;
                 color: $dark-gray;
+                outline: none;
+                text-align: center;
             }
         }
     }
