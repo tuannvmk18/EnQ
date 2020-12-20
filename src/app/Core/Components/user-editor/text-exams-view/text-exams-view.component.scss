@@ -1,3 +1,11 @@
 .container {
-  max-height: 500px;
+    max-height: 500px;
+    .card-content {
+        margin-top: 10px;
+        .mat-typography {
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-row-gap: 15px;
+        }
+    }
 }
