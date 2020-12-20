@@ -2,7 +2,7 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export const API = 'http://localhost:3001/v1/';
+export const API = 'https://enq-server.herokuapp.com/v1/';
 
 export const environment = {
   production: false

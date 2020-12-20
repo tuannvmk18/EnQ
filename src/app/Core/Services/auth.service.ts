@@ -1,9 +1,9 @@
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { API } from 'src/environments/environment';
 import { catchError, concatAll, map, take, tap } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { API } from '../../../environments/environment';
 @Injectable({
   providedIn: 'root',
 })
@@ -12,8 +12,10 @@ export class AuthService {
   private token: string = null;
 
   constructor(private httpClient: HttpClient, private router: Router) {
-    this.getUserFromLocalStorage();
     this.getTokenFromLocalStorage();
+    if(this.token != null) {
+      this.getAdminUserInfo(this.token).subscribe();
+    }
   }
 
   public signOut(): void {
